@@ -31,19 +31,5 @@ Important note - we now use submodules:
  * [Misc tools](/java_tools) Misc development utilities
  * [Software Development process](misc/SoftwareDevelopmentProcess.md)
 
-# External Links
 
- * [Forum](http://gerefi.com/forum)
- * [Documentation](https://github.com/gerefi/gerefi/wiki)
- * [Doxygen documentation](http://gerefi.com/docs/html)
- * [General source code Q&A](http://gerefi.com/forum/viewtopic.php?f=5&t=10)
- * [Facebook](https://www.facebook.com/gerefiECU)
- * [YouTube](https://www.youtube.com/user/gerefi)
- * [Patreon](https://www.patreon.com/gerefi)
 
-# Building the Code
-Check out https://gerefi.com/forum/viewtopic.php?f=5&t=9
-
-# Release Notes
-
-See [the changelog](firmware/CHANGELOG.md)
