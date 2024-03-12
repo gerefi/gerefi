@@ -2,7 +2,6 @@
 
 <img src="https://raw.githubusercontent.com/wiki/gerefi/gerefi/Images/logo_new.png" alt="gerefi" width="600" />
 
-<b>GPL open-source ECU</b>
 
 [![Release](https://img.shields.io/github/v/release/gerefi/gerefi?style=flat)](https://github.com/gerefi/gerefi/releases/latest)![Last Commit](https://img.shields.io/github/last-commit/gerefi/gerefi?style=flat)
 ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/gerefi/gerefi/latest?color=blueviolet&label=Commits%20Since%20Release)
@@ -16,7 +15,6 @@ See [gcc_version_check.c](https://github.com/gerefi/gerefi/blob/master/firmware/
 Current binaries are always available on our [build server](http://gerefi.com/build_server/)
 
 
-[shop.gerefi.com](https://www.shop.gerefi.com/)
 
 # Cloning the repository
 `git clone https://github.com/gerefi/gerefi.git`
