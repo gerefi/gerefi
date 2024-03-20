@@ -47,6 +47,3 @@
 [submodule "java_console/peak-can-basic"]
 	path = java_console/peak-can-basic
 	url = https://github.com/gerefi/peak-can-basic
-[submodule "hardware/kicad-libraries"]
-	path = hardware/kicad-libraries
-	url = https://github.com/gerefi/kicad-libraries.git
