@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/wiki/gerefi/gerefi/Images/logo_new.png" alt="gerefi" width="600" />
+<img src="https://github.com/gerefi/DELTA_Pro_Case/blob/8cc30090da11b7ad1b4755dbd38c58cf7fddcf88/image.png" alt="gerefi" width="700" />
 
 
 [![Release](https://img.shields.io/github/v/release/gerefi/gerefi?style=flat)](https://github.com/gerefi/gerefi/releases/latest)![Last Commit](https://img.shields.io/github/last-commit/gerefi/gerefi?style=flat)
