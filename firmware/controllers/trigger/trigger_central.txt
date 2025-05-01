@@ -1,0 +1,24 @@
+
+
+struct_no_prefix trigger_central_s
+
+	uint16_t[HW_EVENT_TYPES iterate] hwEventCounters;Hardware events since boot
+
+  uint16_t vvtCamCounter;Sync: total cams front counter
+
+    float mapVvt_MAP_AT_SPECIAL_POINT;InstantMAP at readout angle;"kPa", 1, 0, -300, 300, 1
+    float mapVvt_MAP_AT_DIFF;InstantMAP delta @ readout angles;"kPa", 1, 0, -300, 300, 1
+    int8_t mapVvt_MAP_AT_CYCLE_COUNT;;"distance", 1, 0, -10, 100, 0
+    uint8_t mapVvt_sync_counter;Instant MAP sync counter;"counter", 1, 0, 0, 100, 0
+
+    float currentEngineDecodedPhase;Sync: Engine Phase;"deg",1, 0, 0, 0, 0, "Sync"
+
+	float triggerToothAngleError;Sync: trigger angle error;"deg", 1, 0, -30, 30, 2
+
+	uint8_t triggerIgnoredToothCount
+    angle_t mapCamPrevToothAngle;Sync: MAP: prev angle;"deg", 1, 0, -3000, 3000, 2
+	bit isDecodingMapCam
+
+	uint32_t triggerElapsedUs
+
+end_struct

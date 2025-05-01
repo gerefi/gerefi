@@ -1,0 +1,194 @@
+meta: config/boards/hellen_mm100_meta.h
+
+pins:
+  - pin: C1
+    function: Sensor +5v Power Feed
+    type: 5v
+    color: red
+
+  - pin: C2
+    function: Sensor +5v Power Feed
+    type: 5v
+    color: red
+
+  - pin: C3
+    meta: MM100_IN_O2S2_ANALOG
+    class: analog_inputs
+    color: yellow
+    ts_name: ___ AUX2
+    function: Auxiliary analog input 2
+
+  - pin: C4
+    meta: MM100_IN_AUX2_ANALOG
+    class: analog_inputs
+    ts_name: ___ PPS2
+    function: PPS input 2
+    type: av
+    color: orange/brown
+
+  - pin: C5
+    meta: MM100_IN_D1
+    class: event_inputs
+    color: green
+    ts_name: ___ CAM 1 / HALL1
+    function: HALL input 1 (4.7K PU)
+
+  - pin: C6
+    meta: MM100_IN_D2
+    class: event_inputs
+    color: blue
+    ts_name: ___ CAM 2 / HALL2
+    function: HALL input 2 (4.7K PU)
+
+  - pin: C7
+    meta: MM100_IN_D3
+    class: event_inputs
+    color: white
+    ts_name: ___ HALL3
+    function: VSS or HALL input 3 (4.7K PU)
+
+  - pin: C8
+    function: Power Ground / VR Shield
+    type: gnd
+    color: black
+
+  - pin: C9
+    meta: MM100_IN_D4
+    class: switch_inputs
+    color: grey
+    ts_name: ___ BUTTON3
+    function: Button input 3
+
+  - pin: C10
+    ts_name: ___ EGT+
+    function: EGT positive input
+
+  - pin: C11
+    function: Sensor ground
+    color: black
+
+  - pin: C12
+    function: Sensor ground
+    color: black
+
+  - pin: C13
+    function: Sensor ground
+    color: black
+
+  - pin: C14
+    meta: MM100_IN_AUX1_ANALOG
+    class: analog_inputs
+    ts_name: ___ TPS2
+    function: TPS input 2
+    type: av
+    color: blue
+
+  - pin: C15
+    meta: MM100_IN_AUX3_ANALOG
+    color: grey
+    class: analog_inputs
+    ts_name: ___ Fuel Pressure / AUX3
+    function: Fuel Pressure / Auxiliary analog input 3
+
+  - pin: C16
+    function: VR2+ max9924
+    color: blue
+
+  - pin: C17
+    meta: MM100_UART8_TX
+    class: event_inputs
+    ts_name: ___ VR2-/HALL max9924
+    function: VR2-/HALL
+    color: white
+
+#  - pin: C16C17
+#    meta: MM100_UART8_TX
+#    class: event_inputs
+#    function: VR2 Sensor
+#    type: hall
+#    ts_name: C15/C16 VR2 Sensor
+
+  - pin: C18
+    meta: MM100_UART8_RX
+    type: hall
+    class: event_inputs
+    function: VR1+
+    ts_name: ___ VR1+ Discrete
+    color: blue
+
+  - pin: C19
+    function: VR1- Discrete
+    color: white
+
+  - pin: C20
+    ts_name: ___ EGT-
+    function: EGT negative input
+
+info:
+  cid: c
+  title: uaefi
+  directory: hellen/uaefi
+  board_url: https://github.com/gerefi/gerefi/wiki/uaefi
+  image:
+    file: uaefi-C.jpg
+  pins:
+    - pin: C1
+      x: 1655
+      y: 400
+    - pin: C2
+      x: 1500
+      y: 400
+    - pin: C3
+      x: 1341
+      y: 400
+    - pin: C4
+      x: 1185
+      y: 400
+    - pin: C5
+      x: 1031
+      y: 400
+    - pin: C6
+      x: 876
+      y: 400
+    - pin: C7
+      x: 716
+      y: 400
+    - pin: C8
+      x: 561
+      y: 400
+    - pin: C9
+      x: 405
+      y: 400
+    - pin: C10
+      x: 246
+      y: 400
+    - pin: C11
+      x: 1655
+      y: 245
+    - pin: C12
+      x: 1500
+      y: 245
+    - pin: C13
+      x: 1341
+      y: 245
+    - pin: C14
+      x: 1185
+      y: 245
+    - pin: C15
+      x: 1031
+      y: 245
+    - pin: C16
+      x: 876
+      y: 245
+    - pin: C17
+      x: 716
+      y: 245
+    - pin: C18
+      x: 561
+      y: 245
+    - pin: C19
+      x: 405
+      y: 245
+    - pin: C20
+      x: 246
+      y: 245

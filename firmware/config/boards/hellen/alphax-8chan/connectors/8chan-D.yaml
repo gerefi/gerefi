@@ -1,0 +1,282 @@
+meta: config/boards/hellen_mm176_meta.h
+
+pins:
+  - pin: 1D
+    meta: MM176_INJ1
+    function: Injector 1
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector 1
+    color: green
+
+  - pin: 2D
+    meta: MM176_INJ2
+    function: Injector 2
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector 2
+    color: white
+
+  - pin: 3D
+    meta: MM176_INJ3
+    function: Injector 3
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector 3
+    color: blue
+
+  - pin: 4D
+    meta: MM176_INJ4
+    function: Injector 4
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector 4
+    color: orange/brown
+
+  - pin: 5D
+    meta: MM176_INJ5
+    function: Injector 5
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector 5
+    color: green
+
+  - pin: 6D
+    meta: MM176_INJ6
+    function: Injector 6
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector 6
+    color: white
+
+  - pin: 7D
+    meta: MM176_INJ7
+    function: Injector 7
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector 7
+    color: blue
+
+  - pin: 8D
+    function: VVT 1
+    meta: MM176_OUT_PWM1
+    class: outputs
+    type: ls
+    ts_name: ___ - VVT 1
+    color: purple
+
+  - pin: 9D
+    function: Fuel Pump Relay Output (low)
+    meta: MM176_GP3
+    class: outputs
+    ts_name: ___ - Fuel Pump
+    color: purple
+
+  - pin: 10D
+    function: Fan Relay Output (low)
+    meta: MM176_GP2
+    class: outputs
+    ts_name: ___ - Fan
+    color: purple
+
+  - pin: 11D
+    function: Main Relay Output (low)
+    meta: MM176_GP1
+    class: outputs
+    ts_name: ___ - Main Relay
+    color: grey
+
+  - pin: 12D
+    function: NOS Relay Output (low)
+    meta: MM176_OUT_IO8
+    class: outputs
+    ts_name: ___ - NOS
+    color: purple
+
+  - pin: 13D
+    meta: MM176_INJ8
+    function: Injector 8
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector 8
+    color: orange/brown
+
+
+  - pin: 14D
+    function: VVT 2
+    meta: MM176_OUT_PWM2
+    class: outputs
+    type: ls
+    ts_name: 14D - VVT 2
+    color: orange
+
+  - pin: 15D
+    function: Tachometer Output (low)
+    meta: MM176_OUT_IO13
+    class: outputs
+    ts_name: ___ - Tachometer
+    color: orange
+
+  - pin: 16D
+    function: Low Side 1
+    meta: MM176_OUT_PWM6
+    class: outputs
+    ts_name: ___ - Low Side 1
+    color: orange
+
+  - pin: 17D
+    function: Power GND
+    type: gnd
+    color: purple
+
+  - pin: 18D
+    function: Power GND
+    type: gnd
+    color: purple
+
+  - pin: 19D
+    meta: MM176_GP17
+    function: Injector 9
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector 9
+    color: purple
+
+
+  - pin: 20D
+    function: VVT 3
+    meta: MM176_OUT_PWM3
+    type: ls
+    class: outputs
+    ts_name: ___ - VVT 3
+    color: purple
+
+  - pin: 21D
+    function: VVT 4
+    meta: MM176_OUT_PWM4
+    type: ls
+    class: outputs
+    ts_name: ___ - VVT 4
+    color: purple
+
+  - pin: 22D
+    function: Boost (low)
+    meta: MM176_OUT_PWM5
+    class: outputs
+    ts_name: ___ - Boost
+    color: purple
+
+  - pin: 23D
+    function: Low Side 2
+    meta: MM176_OUT_PWM7
+    class: outputs
+    ts_name: ___ - Low Side 2
+
+  - pin: 24D
+    meta: MM176_GP20
+    function: Injector 12
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector 12
+
+  - pin: 25D
+    meta: MM176_GP19
+    function: Injector 11
+    class: outputs
+    type: inj
+    ts_name: 25D - Injector 11
+
+  - pin: 26D
+    meta: MM176_GP18
+    function: Injector 10
+    class: outputs
+    type: inj
+    ts_name: 26D - Injector 10
+    color: yellow
+
+info:
+  title: AlphaX Platinum
+  cid: d
+  directory: hellen/alphax-platinum
+  name: AlphaX Platinum
+  image:
+    file: 26pins-4k.jpg
+  pins:
+    - pin: 1D
+      x: 85
+      y: 90
+    - pin: 2D
+      x: 110
+      y: 90
+    - pin: 3D
+      x: 135
+      y: 90
+    - pin: 4D
+      x: 160
+      y: 90
+    - pin: 5D
+      x: 185
+      y: 90
+    - pin: 6D
+      x: 205
+      y: 90
+    - pin: 7D
+      x: 230
+      y: 90
+    - pin: 8D
+      x: 100
+      y: 120
+    - pin: 9D
+      x: 125
+      y: 120
+    - pin: 10D
+      x: 145
+      y: 120
+    - pin: 11D
+      x: 170
+      y: 120
+    - pin: 12D
+      x: 195
+      y: 120
+    - pin: 13D
+      x: 220
+      y: 120
+    - pin: 14D
+      x: 100
+      y: 150
+    - pin: 15D
+      x: 125
+      y: 150
+    - pin: 16D
+      x: 145
+      y: 150
+    - pin: 17D
+      x: 170
+      y: 150
+    - pin: 18D
+      x: 195
+      y: 150
+    - pin: 19D
+      x: 220
+      y: 150
+    - pin: 20D
+      x: 85
+      y: 180
+    - pin: 21D
+      x: 110
+      y: 180
+    - pin: 22D
+      x: 135
+      y: 180
+    - pin: 23D
+      x: 155
+      y: 180
+    - pin: 24D
+      x: 180
+      y: 180
+    - pin: 25D
+      x: 205
+      y: 180
+    - pin: 26D
+      x: 230
+      y: 180

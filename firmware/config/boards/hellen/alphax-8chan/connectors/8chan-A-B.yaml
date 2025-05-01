@@ -1,0 +1,569 @@
+meta: config/boards/hellen_mm176_meta.h
+
+pins:
+  - pin: On-board MAP
+    meta: MM176_IN_MAP3_ANALOG
+    class: analog_inputs
+    function: MAP Sensor Input
+    ts_name: On-board MAP
+    color: orange
+
+  - pin: 1A
+    meta: MM176_IN_CRANK_ANALOG
+    function: Aux Analog 1 / External MAP
+    class: analog_inputs
+    ts_name: 1A - Aux Analog 1
+    color: blue
+
+  - pin: 2A
+    meta: MM176_IN_MAP1_ANALOG
+    function: Aux Analog 4
+    class: analog_inputs
+    ts_name: 2A - Aux Analog 4
+    color: violet
+
+  - pin: 3A
+    meta: MM176_IN_O2S_ANALOG
+    function: Aux Analog 2
+    class: analog_inputs
+    ts_name: 3A - Aux Analog 2
+    color: yellow
+
+  - pin: 4A
+    meta: MM176_IN_AUX2_ANALOG
+    function: Aux Analog 7
+    class: analog_inputs
+    ts_name: 4A - Aux Analog 7
+    color: blue
+
+  - pin: 5A
+    meta: MM176_IN_SENS1
+    function: Switch 4
+    class: switch_inputs
+    ts_name: 5A - Switch 4
+    color: red
+
+  - pin: 6A
+    meta: MM176_IN_AUX5
+    function: Switch 1
+    class: switch_inputs
+    ts_name: 6A - Switch 1
+    color: white
+
+  - pin: 7A
+    function: Power Ground
+    type: gnd
+    color: black
+
+  - pin: 8A
+    function: Analog Ground
+    type: agnd
+    color: black
+
+  - pin: 9A
+    function: Hall Input 4
+    type: hall
+    id: [MM176_IN_D4, MM176_IN_D4]
+    class: [event_inputs, switch_inputs]
+    ts_name: 9A - Hall Input 4
+    color: green
+
+
+  - pin: 10A
+    meta: MM176_IN_MAP2_ANALOG
+    function: Aux Analog 5
+    class: analog_inputs
+    ts_name: 10A - Aux Analog 5
+    color: yellow
+
+  - pin: 11A
+    meta: MM176_IN_O2S2_ANALOG
+    function: Aux Analog 3
+    class: analog_inputs
+    ts_name: 11A - Aux Analog 3
+    color: yellow
+
+  - pin: 12A
+    meta: MM176_IN_AUX3_ANALOG
+    function: Aux Analog 8
+    class: analog_inputs
+    ts_name: 12A - Aux Analog 8
+    color: yellow
+
+  - pin: 13A
+    function: Hall Input 5
+    type: hall
+    id: [MM176_IN_SENS2, MM176_IN_SENS2]
+    class: [event_inputs, switch_inputs]
+    ts_name: 13A - Hall Input 5
+    color: yellow
+
+  - pin: 14A
+    meta: MM176_IN_AUX6
+    function: Switch 2
+    class: switch_inputs
+    ts_name: 14A - Switch 2
+    color: orange
+
+  - pin: 15A
+    function: Hall Input 1
+    type: hall
+    id: [MM176_IN_D1, MM176_IN_D1]
+    class: [event_inputs, switch_inputs]
+    ts_name: 15A - Hall Input 1
+    color: orange/brown
+
+  - pin: 16A
+    function: +5v sensors
+    color: orange
+    type: 5v
+
+  - pin: 17A
+    function: Analog Ground
+    type: agnd
+    color: black
+
+
+  - pin: 18A
+    function: Power Ground
+    type: gnd
+    color: black
+
+  - pin: 19A
+    meta: MM176_IN_AUX1_ANALOG
+    function: Aux Analog 6
+    class: analog_inputs
+    ts_name: 19A - Aux Analog 6
+    color: blue
+
+  - pin: 20A
+    meta: MM176_IN_AUX4_ANALOG
+    function: Aux Analog 9
+    class: analog_inputs
+    ts_name: 20A - Aux Analog 9
+    color: blue
+
+  - pin: 21A
+    id: [MM176_IN_SENS3, MM176_IN_SENS3]
+    class: [event_inputs, switch_inputs]
+    function: Flex
+    type: hall
+    ts_name: ___ - Flex
+    color: blue
+
+  - pin: 22A
+    meta: MM176_IN_AUX7
+    function: Switch 3
+    class: switch_inputs
+    ts_name: 22A - Switch 3
+    color: orange
+
+  - pin: 23A
+    function: Hall Input 2 (cannot be used simultaneously with VR3)
+    type: hall
+    id: [MM176_IN_D2, MM176_IN_D2]
+    class: [event_inputs, switch_inputs]
+    ts_name: ___ - Hall Input 2
+    color: white
+
+  - pin: 24A
+    function: Hall Input 3 / SENT
+    type: hall
+    id: [MM176_IN_D3, MM176_IN_D3]
+    class: [event_inputs, switch_inputs]
+    ts_name: 24A - Hall Input 3 / SENT
+    color: black
+
+  - pin: 25A
+    function: Analog Ground
+    type: agnd
+    color: black
+
+  - pin: 26A
+    function: VSS Hall Input
+    type: hall
+    id: [MM176_IN_VSS, MM176_IN_VSS]
+    class: [event_inputs, switch_inputs]
+    ts_name: 26A - VSS Hall
+    color: purple
+
+  - pin: 27A
+    meta: MM176_IN_IAT_ANALOG
+    class: analog_inputs
+    function: IAT Sensor Input
+    ts_name: 27A - IAT Sensor Input
+    type: at
+    color: purple
+
+  - pin: 28A
+    meta: MM176_IN_AT1_ANALOG
+    class: analog_inputs
+    function: Aux Temp 1
+    ts_name: 28A - Aux Temp 1
+    type: at
+    color: purple
+
+  - pin: 29A
+    meta: MM176_IN_CLT_ANALOG
+    class: analog_inputs
+    function: CLT Sensor Input
+    type: at
+    ts_name: 29A - CLT Sensor Input
+    color: purple
+
+  - pin: 30A
+    meta: MM176_IN_AT2_ANALOG
+    class: analog_inputs
+    function: Aux Temp 2
+    type: at
+    ts_name: ___ - Aux Temp 2
+
+  - pin: 31A
+    meta: MM176_IN_TPS_ANALOG
+    class: analog_inputs
+    function: TPS Sensor Input
+    color: green
+    type: av
+    ts_name: 31A - TPS Sensor Input
+
+  - pin: 32A
+    meta: MM176_IN_PPS1_ANALOG
+    class: analog_inputs
+    function: PPS Sensor Input
+    ts_name: ___ - PPS Sensor Input
+    type: av
+    color: orange
+
+  - pin: 33A
+    meta: MM176_IN_TPS2_ANALOG
+    class: analog_inputs
+    color: blue
+    type: av
+    function: TPS2 Sensor Input
+    ts_name: ___ - TPS2 Sensor Input
+
+  - pin: 34A
+    meta: MM176_IN_PPS2_ANALOG
+    class: analog_inputs
+    type: av
+    function: PPS2 Sensor Input
+    ts_name: 34A - PPS2 Sensor Input
+    color: white
+
+  - pin: 1B
+    function: VR1-/Hall Input max9924
+    meta: MM176_USB1ID
+    class: event_inputs
+    ts_name: 1B - VR1-/Hall Input max9924
+    color: red
+
+  - pin: 2B
+    function: VR1+ max9924
+
+#  - pin: 1B2B
+#    function: VR1
+#    meta: MM176_USBID
+#    class: event_inputs
+#    ts_name: 1B/2B - VR1
+
+  - pin: 3B
+    function: VR2+
+
+  - pin: 4B
+    function: VR2-
+
+  - pin: 3B4B
+    function: VR2
+    meta: MM176_IN_CAM
+    class: event_inputs
+    ts_name: 3B/4B - VR2
+
+  - pin: 5B
+    function: VR3-
+
+  - pin: 6B
+    function: VR3+
+
+  - pin: 5B6B
+    function: VR3 (cannot be used simultaneously with Hall2)
+    meta: MM176_GP14
+    class: event_inputs
+    ts_name: 5B/6B - VR3
+
+  - pin: 7B
+    function: VR4-
+
+
+  - pin: 8B
+    function: WBO2 heater white 3
+
+  - pin: 9B
+    function: WBO2 VM yellow 2
+
+  - pin: 10B
+    function: WBO2 IP red 1
+
+  - pin: 11B
+    function: WBO2 cal R green 5
+
+  - pin: 12B
+    function: WBO2 VS black 6
+
+  - pin: 13B
+    function: VR4+
+
+
+  - pin: 7B13B
+    function: VR4
+    meta: MM176_GP15
+    class: event_inputs
+    ts_name: 7B/13B - VR4
+
+  - pin: 14B
+    function: WBO1 heater white 3
+
+  - pin: 15B
+    function: WBO1 VM yellow 2
+
+  - pin: 16B
+    function: WBO1 IP red 1
+
+  - pin: 17B
+    function: WBO1 cal R green 5
+
+  - pin: 18B
+    function: WBO2 VS black 6
+
+  - pin: 19B
+    function: regulated +12V output (12V from main relay for consumers)
+    type: 12v
+
+  - pin: 20B
+    function: Analog Ground
+    type: agnd
+
+  - pin: 21B
+    meta: MM176_IN_SENS4
+    class: switch_inputs
+    function: Knock2 Input
+    ts_name: 21B - Knock2 Input
+    color: white
+
+  - pin: 22B
+    #meta: MM176_IN_KNOCK
+    #class: switch_inputs
+    function: Knock Input
+    #ts_name: 22B - Knock Input
+    color: green
+
+  - pin: 23B
+    function: +5v sensors
+    color: red
+    type: 5v
+
+  - pin: 24B
+    meta: MM176_IN_VBATT
+    class: analog_inputs
+    ts_name: ___ - Ignition Key Voltage
+    function: +12V engine ECU power source, run/start
+    color: green
+    type: 12v
+
+  - pin: 25B
+    function: Power GND
+    type: gnd
+
+  - pin: 26B
+    function: +12V from main relay ETB/DC power source
+    type: 12v
+
+info:
+  title: AlphaX Platinum
+  cid: ab
+  name: AlphaX Platinum
+  # directory see D.yaml
+  board_url: https://gerefi.com/s/8chan
+  image:
+    file: 8chan-A-B.jpg
+  pins:
+    - pin: 1A
+      x: 95
+      y: 90
+    - pin: 2A
+      x: 120
+      y: 90
+    - pin: 3A
+      x: 155
+      y: 90
+    - pin: 4A
+      x: 180
+      y: 90
+    - pin: 5A
+      x: 205
+      y: 90
+    - pin: 6A
+      x: 230
+      y: 90
+    - pin: 7A
+      x: 255
+      y: 90
+    - pin: 8A
+      x: 280
+      y: 90
+    - pin: 9A
+      x: 305
+      y: 90
+    - pin: 10A
+      x: 110
+      y: 120
+    - pin: 11A
+      x: 135
+      y: 120
+    - pin: 12A
+      x: 160
+      y: 120
+    - pin: 13A
+      x: 185
+      y: 120
+    - pin: 14A
+      x: 210
+      y: 120
+    - pin: 15A
+      x: 235
+      y: 120
+    - pin: 16A
+      x: 260
+      y: 120
+    - pin: 17A
+      x: 285
+      y: 120
+    - pin: 18A
+      x: 110
+      y: 150
+    - pin: 19A
+      x: 135
+      y: 150
+    - pin: 20A
+      x: 160
+      y: 150
+    - pin: 21A
+      x: 185
+      y: 150
+    - pin: 22A
+      x: 210
+      y: 150
+    - pin: 23A
+      x: 235
+      y: 150
+    - pin: 24A
+      x: 260
+      y: 150
+    - pin: 25A
+      x: 285
+      y: 150
+    - pin: 26A
+      x: 95
+      y: 180
+    - pin: 27A
+      x: 120
+      y: 180
+    - pin: 28A
+      x: 155
+      y: 180
+    - pin: 29A
+      x: 180
+      y: 180
+    - pin: 30A
+      x: 205
+      y: 180
+    - pin: 31A
+      x: 230
+      y: 180
+    - pin: 32A
+      x: 255
+      y: 180
+    - pin: 33A
+      x: 280
+      y: 180
+    - pin: 34A
+      x: 305
+      y: 180
+
+    - pin: 1B
+      x: 425
+      y: 90
+    - pin: 2B
+      x: 450
+      y: 90
+    - pin: 3B
+      x: 475
+      y: 90
+    - pin: 4B
+      x: 500
+      y: 90
+    - pin: 5B
+      x: 525
+      y: 90
+    - pin: 6B
+      x: 550
+      y: 90
+    - pin: 7B
+      x: 575
+      y: 90
+    - pin: 8B
+      x: 435
+      y: 120
+    - pin: 9B
+      x: 460
+      y: 120
+    - pin: 10B
+      x: 485
+      y: 120
+    - pin: 11B
+      x: 510
+      y: 120
+    - pin: 12B
+      x: 535
+      y: 120
+    - pin: 13B
+      x: 560
+      y: 120
+    - pin: 14B
+      x: 435
+      y: 150
+    - pin: 15B
+      x: 460
+      y: 150
+    - pin: 16B
+      x: 485
+      y: 150
+    - pin: 17B
+      x: 510
+      y: 150
+    - pin: 18B
+      x: 535
+      y: 150
+    - pin: 19B
+      x: 560
+      y: 150
+    - pin: 20B
+      x: 425
+      y: 180
+    - pin: 21B
+      x: 450
+      y: 180
+    - pin: 22B
+      x: 475
+      y: 180
+    - pin: 23B
+      x: 500
+      y: 180
+    - pin: 24B
+      x: 525
+      y: 180
+    - pin: 25B
+      x: 550
+      y: 180
+    - pin: 26B
+      x: 575
+      y: 180

@@ -1,0 +1,13 @@
+
+defaultTasks 'jar'
+
+apply from: '../../java_tools/dependencies.gradle'
+
+jar {
+    destinationDirectory = file( '$rootDir/../..' )
+    manifest {
+        attributes(
+            'Main-Class': 'com.gerefi.LogicData2C'
+        )
+    }
+}

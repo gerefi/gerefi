@@ -1,0 +1,13 @@
+current_configuration.msq
+build_hw
+logs/
+gerefi_console_properties.xml
+generated*.cpp
+currenttune.msq
+output.msq
+gerefi.ini
+openocd
+gerefi_*.*
+triggers
+unit_test*.xml
+*trace.json

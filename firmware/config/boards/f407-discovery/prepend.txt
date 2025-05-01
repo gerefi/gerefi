@@ -1,0 +1,25 @@
+#define ts_show_tps_sent true
+
+#define ts_show_software_knock true
+
+#define ts_show_inj_diag true
+
+#define show_test_presets true
+#define show_Frankenso_presets true
+#define ts_show_output_diag true
+#define ts_show_vr_threshold_all true
+#define ts_show_vr_threshold_2 true
+#define ts_show_k_line true
+
+! todo: we can do better with board_leds.ini similar to board indicators etc
+#define ts_show_communityCommsLedPin true
+
+#define ts_show_onboard_accelerometer true
+! reduced MAX_CYLINDER_COUNT gives us a bit more flash and a bit more RAM
+! todo looks like this was pretty much ignored #define MAX_CYLINDER_COUNT 8
+
+#define INJ_PHASE_RPM_COUNT 6
+#define INJ_PHASE_LOAD_COUNT 6
+
+#define MAP_EST_RPM_COUNT 6
+#define MAP_EST_LOAD_COUNT 6

@@ -1,0 +1,65 @@
+name: Android
+
+#on: [push,pull_request]
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout Submodules Without ChibiOS
+        run: |
+          misc/git_scripts/common_submodule_init_without_chibios.sh
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Install Tools
+        run: |
+          sudo bash misc/actions/add-ubuntu-latest-apt-mirrors.sh
+          sudo apt-get install mtools
+
+      - name: Test Java Compiler
+        run: javac -version
+
+      - name: Print GCC version
+        working-directory: .
+        run: gcc -v
+
+      - name: Build Android
+        env:
+          GEREFI_ANDROID_KEYPASS: ${{ secrets.GEREFI_ANDROID_KEYPASS }}
+        working-directory: ./android
+        run: |
+          if [ "${{github.repository}}" == "gerefi/gerefi" && "${{github.event_name}}" == "push" ]; then
+            bash ./gradlew build
+          else
+            bash ./gradlew bundleDebug test
+          fi
+
+      - name: Upload APK - release
+        if: ${{ github.event_name == 'push' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: gerEFI-release
+          path: ./android/app/build/outputs/apk/release/gerEFI-release.apk
+
+      - name: Upload APK - unsigned
+        if: ${{ github.event_name != 'push' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: gerEFI-release-unsigned
+          path: ./android/app/build/outputs/bundle/debug/gerEFI-debug.aab
+
+      - name: Install Tools
+        run: sudo apt-get install sshpass
+
+      - name: Upload gerEFI Android application
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        working-directory: .
+        run: java_console/upload_file.sh ${{ secrets.GEREFI_SSH_USER }} ${{ secrets.GEREFI_SSH_PASS }} ${{ secrets.GEREFI_SSH_SERVER }} build_server android/app/build/outputs/apk/release/gerEFI-release.apk

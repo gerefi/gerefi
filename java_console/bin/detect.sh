@@ -1,0 +1,1 @@
+java -jar console/gerefi_console.jar detect

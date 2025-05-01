@@ -1,0 +1,334 @@
+meta: config/boards/hellen_mm100_meta.h
+
+pins:
+  - pin: 1A
+    id: TLE9104_0_OUT_3
+    function: Injector 4 Output
+    class: outputs
+    type: ls
+    ts_name: ___ - Injector 4
+    color: orange
+
+  - pin: 2A
+    id: TLE9104_0_OUT_2
+    function: Injector 3 Output
+    class: outputs
+    type: ls
+    ts_name: ___ - Injector 3
+    color: blue
+
+  - pin: 3A
+    id: TLE9104_0_OUT_1
+    function: Injector 2 Output
+    class: outputs
+    type: ls
+    ts_name: ___ - Injector 2
+    color: white
+
+  - pin: 4A
+    id: TLE9104_0_OUT_0
+    function: Injector 1 Output
+    class: outputs
+    type: ls
+    ts_name: ___ - Injector 1
+    color: green
+
+  - pin: 5A
+    id: TLE9104_1_OUT_1
+    function: Fuel Pump Relay
+    class: outputs
+    type: ls
+    ts_name: ___ Fuel Pump Relay
+    color: white
+
+  - pin: 6A
+    id: TLE9104_1_OUT_2
+    function: Idle Output
+    class: outputs
+    type: ls
+    ts_name: ___ Idle Output
+    color: yellow
+
+  - pin: 7A
+    function: CAN High
+    color: green
+    type: can
+
+  - pin: 8A
+    function: CAN Low
+    color: blue
+    type: can
+
+  - pin: 9A
+    meta: MM100_IN_VBATT
+    class: analog_inputs
+    function: ECU power supply
+    ts_name: ___ Battery Sense
+    color: red
+    type: 12v
+
+  - pin: 10A
+    meta: MM100_IGN4
+    class: outputs
+    ts_name: ___ Coil 4
+    color: orange
+
+  - pin: 11A
+    meta: MM100_IGN3
+    class: outputs
+    ts_name: ___ Coil 3
+    color: blue
+
+  - pin: 12A
+    meta: MM100_IGN2
+    class: outputs
+    ts_name: ___ Coil 2
+    color: white
+
+  - pin: 13A
+    meta: MM100_IGN1
+    class: outputs
+    ts_name: ___ Coil 1
+    color: green
+
+
+  - pin: 14A
+    id: TLE9104_1_OUT_0
+    function: Tach Out
+    class: outputs
+    type: ls
+    ts_name: ___ Tach Output
+    color: blue
+
+  - pin: 15A
+    function: knock
+
+  - pin: 16A
+    id: [MM100_IN_D4, MM100_IN_D4]
+    class: [event_inputs, switch_inputs]
+    function: 16 Hall4 (not while descrete VR)
+
+  - pin: 17A
+    id: [MM100_IN_D3, MM100_IN_D3]
+    class: [event_inputs, switch_inputs]
+    function: 17 Hall3 (not while descrete VR)
+
+  - pin: 16A17A
+    meta: MM100_IN_CAM
+    class: event_inputs
+    function: VR Discrete Positive
+
+  - pin: 18A
+    meta: MM100_IN_TPS_ANALOG
+    class: analog_inputs
+    function: TPS Sensor Input
+    ts_name: ___ - TPS
+    type: av
+    color: orange
+
+
+  - pin: 19A
+    meta: MM100_IN_CLT_ANALOG
+    class: analog_inputs
+    function: CLT Sensor Input
+    ts_name: ___ - CLT
+    type: av
+    color: grey
+
+
+  - pin: 20A
+    meta: MM100_IN_IAT_ANALOG
+    class: analog_inputs
+    function: IAT Sensor Input
+    ts_name: ___ - IAT
+    color: blue
+
+  - pin: On-board MAP
+    meta: MM100_IN_MAP2_ANALOG
+    class: analog_inputs
+    function: MAP Sensor Input
+    ts_name: On-board MAP
+    color: orange
+
+  - pin: 21A
+    meta: MM100_IN_MAP1_ANALOG
+    class: analog_inputs
+    function: MAP Sensor Input
+    ts_name: ___ - MAP
+    type: av
+    color: yellow
+
+  - pin: 22A
+    meta: MM100_IN_AUX1_ANALOG
+    class: analog_inputs
+    function: AUX analog input 1
+    ts_name: ___ - AIN1
+    type: av
+
+  - pin: 23A
+    function: Sensor +5v Power Feed
+    type: 5v
+    color: orange
+
+  - pin: 24A
+    id: [MM100_IN_D2, MM100_IN_D2]
+    class: [event_inputs, switch_inputs]
+    function: 24 Hall2 (not while VR max9924)
+
+  - pin: 25A
+    id: [MM100_IN_D1, MM100_IN_D1]
+    class: [event_inputs, switch_inputs]
+    function: 25 Hall1 (not while VR max9924)
+
+  - pin: 24A25A
+    meta: MM100_IN_CRANK
+    class: event_inputs
+    function: VR max9924 Positive
+
+  - pin: 26A
+    function: Power Ground
+    type: gnd
+    color: black
+
+  - pin: 27A
+    function: Analog Ground
+    type: gnd
+    color: black
+
+  - pin: 28A
+    meta: MM100_IN_AUX3_ANALOG
+    class: analog_inputs
+    function: AUX analog input 2
+    ts_name: ___ - AIN2
+    type: av
+
+  - pin: 29A
+    function: heater WBO
+
+  - pin: 30A
+    function: WBO
+
+  - pin: 31A
+    function: WBO
+
+  - pin: 32A
+    function: WBO
+
+  - pin: 33A
+    function: WBO
+
+  - pin: 34A
+    function: WBO heater positive
+    type: 12v
+
+info:
+  cid: main
+  title: AlphaX Silver
+  name: AlphaX Silver
+  board_url: https://gerefi.com/s/silver
+  directory: hellen/alphax-silver
+  image:
+    file: 34pins-3k.jpg
+  pins:
+    - pin: 1A
+      x: 95
+      y: 90
+    - pin: 2A
+      x: 120
+      y: 90
+    - pin: 3A
+      x: 155
+      y: 90
+    - pin: 4A
+      x: 180
+      y: 90
+    - pin: 5A
+      x: 205
+      y: 90
+    - pin: 6A
+      x: 230
+      y: 90
+    - pin: 7A
+      x: 255
+      y: 90
+    - pin: 8A
+      x: 280
+      y: 90
+    - pin: 9A
+      x: 305
+      y: 90
+    - pin: 10A
+      x: 110
+      y: 120
+    - pin: 11A
+      x: 135
+      y: 120
+    - pin: 12A
+      x: 160
+      y: 120
+    - pin: 13A
+      x: 185
+      y: 120
+    - pin: 14A
+      x: 210
+      y: 120
+    - pin: 15A
+      x: 235
+      y: 120
+    - pin: 16A
+      x: 260
+      y: 120
+    - pin: 17A
+      x: 285
+      y: 120
+    - pin: 18A
+      x: 110
+      y: 150
+    - pin: 19A
+      x: 135
+      y: 150
+    - pin: 20A
+      x: 160
+      y: 150
+    - pin: 21A
+      x: 185
+      y: 150
+    - pin: 22A
+      x: 210
+      y: 150
+    - pin: 23A
+      x: 235
+      y: 150
+    - pin: 24A
+      x: 260
+      y: 150
+    - pin: 25A
+      x: 285
+      y: 150
+    - pin: 26A
+      x: 95
+      y: 180
+    - pin: 27A
+      x: 120
+      y: 180
+    - pin: 28A
+      x: 155
+      y: 180
+    - pin: 29A
+      x: 180
+      y: 180
+    - pin: 30A
+      x: 205
+      y: 180
+    - pin: 31A
+      x: 230
+      y: 180
+    - pin: 32A
+      x: 255
+      y: 180
+    - pin: 33A
+      x: 280
+      y: 180
+    - pin: 34A
+      x: 305
+      y: 180

@@ -1,0 +1,40 @@
+name: TS Plugin
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout Submodules
+        run: |
+          git submodule update --init --depth=1 java_console/peak-can-basic
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          # As of 2025 gerEFI TS plugin is useful again: it provides a knock spectrogram! TS uses java 8 [tag:java8]
+          java-version: '11'
+
+      - name: Test Compiler
+        run: javac -version
+
+      - name: Install Tools
+        run: |
+          sudo bash misc/actions/add-ubuntu-latest-apt-mirrors.sh
+          sudo apt-get install sshpass
+
+      - name: Build TS plugin body
+        working-directory: ./java_tools/
+        run: ./gradlew :ts_plugin:shadowJar
+
+      - name: Upload plugin body
+        working-directory: .
+        run: java_console/upload_file.sh ${{ secrets.GEREFI_SSH_USER }} ${{ secrets.GEREFI_SSH_PASS }} ${{ secrets.GEREFI_SSH_SERVER }} build_server/autoupdate java_tools/ts_plugin/build/libs/gerefi_plugin_body.jar
+

@@ -1,0 +1,30 @@
+/**
+ * @file	sachs.cpp
+ *
+ * set engine_type 29
+ * http://gerefi.com/forum/viewtopic.php?f=3&t=396
+ *
+ * @date Jan 26, 2015
+ * @author Bruno Ferreira, (c) 2012-2020
+ */
+
+#include "pch.h"
+
+#include "sachs.h"
+
+// used by HW CI
+void setSachs() {
+	engineConfiguration->displacement = 0.1; // 100cc
+	engineConfiguration->cylindersCount = 1;
+
+	engineConfiguration->twoStroke = true;
+	engineConfiguration->firingOrder = FO_1;
+	engineConfiguration->engineChartSize = 400;
+
+	/**
+	 * 50/2 trigger
+	 */
+	engineConfiguration->trigger.type = trigger_type_e::TT_TOOTHED_WHEEL;
+	engineConfiguration->trigger.customTotalToothCount = 50;
+	engineConfiguration->trigger.customSkippedToothCount = 2;
+}

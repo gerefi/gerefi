@@ -1,0 +1,233 @@
+meta: config/boards/hellen_mm64_meta.h
+
+pins:
+  - pin: A1
+    function: Power Ground
+    type: gnd
+    color: black
+
+  - pin: A2
+    meta: MM64_IN_ADC11_ANALOG
+    class: analog_inputs
+    function: +12V
+    ts_name: ___ Battery Sense
+    type: 12v
+    color: red
+
+  - pin: A3
+    function: CAN bus2 high (CANH2)
+    type: can
+    ts_name: ___ - CAN2 High
+    color: black
+
+  - pin: A4
+    type: can
+    function: CAN bus2 low (CANL2)
+    ts_name: ___ - CAN2 Low
+    color: yellow
+
+  - pin: A5
+    function: Sensor Ground
+    type: gnd
+    color: brown
+
+  - pin: A6
+    class: outputs
+    function: LIN bus
+    ts_name: ___ - Lin Bus
+    color: yellow
+
+  - pin: A7
+    meta: MM64_OUT_PWM1
+    function: Low Side Output 1 5A
+    class: outputs
+    ts_name: ___ - Low Side
+    color: green
+
+  - pin: A8
+    meta: MM64_OUT_PWM2
+    function: Low Side Output 2 5A
+    class: outputs
+    ts_name: ___ - Low Side
+    color: green
+
+  - pin: B1
+    function: Power Ground
+    type: gnd
+    color: black
+
+  - pin: B2
+    id: [MM64_IN_ADC2, MM64_IN_ADC2_ANALOG]
+    class: [switch_inputs, analog_inputs]
+    function: Analog/Digital Input 1
+    ts_name: ___ - Analog/Digital Input
+    color: orange
+
+  - pin: B3
+    id: [MM64_IN_ADC3, MM64_IN_ADC3_ANALOG]
+    class: [switch_inputs, analog_inputs]
+    function: Analog/Digital Input 2
+    ts_name: ___ - Analog/Digital Input
+    color: orange
+
+  - pin: B4
+    id: [MM64_IN_ADC4, MM64_IN_ADC4_ANALOG]
+    class: [switch_inputs, analog_inputs]
+    function: Analog/Digital Input 3
+    ts_name: ___ - Analog/Digital Input
+    color: orange
+
+  - pin: B5
+    id: [MM64_IN_ADC5, MM64_IN_ADC5_ANALOG]
+    class: [switch_inputs, analog_inputs]
+    function: Analog/Digital Input 4
+    ts_name: ___ - Analog/Digital Input
+    color: orange
+
+  - pin: B6
+    function: Sensor +5v Power Feed
+    type: 5v
+    color: orange
+
+  - pin: B7
+    id: [MM64_IN_ADC6, MM64_IN_ADC6_ANALOG]
+    class: [switch_inputs, analog_inputs]
+    function: Analog/Digital Input 5
+    ts_name: ___ - Analog/Digital Input
+    color: orange
+
+  - pin: B8
+    meta: MM64_OUT_PWM3
+    function: Low Side Output 3 5A
+    class: outputs
+    ts_name: ___ - Low Side
+    color: blue
+
+  - pin: C1
+    id: [MM64_IN_ADC7, MM64_IN_ADC7, MM64_IN_ADC7_ANALOG]
+    class: [event_inputs, switch_inputs, analog_inputs]
+    function: Analog/Digital Input 6
+    ts_name: ___ - Analog/Digital Input 6
+    color: purple
+
+  - pin: C2
+    id: [MM64_IN_ADC14, MM64_IN_ADC14, MM64_IN_ADC14_ANALOG]
+    class: [event_inputs, switch_inputs, analog_inputs]
+    function: Analog/Digital Input 7
+    ts_name: ___ - Analog/Digital Input 7
+    color: purple
+
+  - pin: C3
+    id: [MM64_IN_ADC1, MM64_IN_ADC1]
+    class: [event_inputs, switch_inputs]
+    function: Digital Input / SENT Input
+    type: hall
+    ts_name: ___ - Digital Input with 2.7K pull up
+
+  - pin: C4
+    id: [MM64_IN_ADC15, MM64_IN_ADC15, MM64_IN_ADC15_ANALOG]
+    class: [event_inputs, switch_inputs, analog_inputs]
+    function: Analog/Digital Input 8
+    ts_name: ___ - Analog/Digital Input 8
+    color: gray
+
+  - pin: C5
+    function: CAN bus high (CANH)
+    type: can
+    color: green
+
+  - pin: C6
+    function: CAN bus low (CANL)
+    type: can
+    color: blue
+
+  - pin: C8
+    meta: MM64_OUT_PWM4
+    function: Low Side Output 4 5A
+    class: outputs
+    ts_name: ___ - Low Side
+    color: blue
+
+info:
+  title: Small CAN
+  cid: small
+  name: Small CAN
+  board_url: https://gerefi.com/s/scan
+  directory: hellen/small-can-board
+  image:
+    file: alphax-2chan.jpg
+  pins:
+    - pin: A8
+      x: 316
+      y: 239
+    - pin: A7
+      x: 413
+      y: 239
+    - pin: A6
+      x: 489
+      y: 239
+    - pin: A5
+      x: 564
+      y: 239
+    - pin: A4
+      x: 635
+      y: 239
+    - pin: A3
+      x: 710
+      y: 239
+    - pin: A2
+      x: 786
+      y: 239
+    - pin: A1
+      x: 882
+      y: 239
+
+    - pin: B8
+      x: 316
+      y: 352
+    - pin: B7
+      x: 413
+      y: 352
+    - pin: B6
+      x: 489
+      y: 352
+    - pin: B5
+      x: 564
+      y: 352
+    - pin: B4
+      x: 635
+      y: 352
+    - pin: B3
+      x: 710
+      y: 352
+    - pin: B2
+      x: 786
+      y: 352
+    - pin: B1
+      x: 882
+      y: 352
+
+    - pin: C8
+      x: 316
+      y: 466
+    - pin: C7
+      x: 413
+      y: 466
+    - pin: C6
+      x: 489
+      y: 466
+    - pin: C5
+      x: 564
+      y: 466
+    - pin: C4
+      x: 635
+      y: 466
+    - pin: C3
+      x: 710
+      y: 466
+    - pin: C2
+      x: 786
+      y: 466
+    - pin: C1
+      x: 882
+      y: 466

@@ -1,0 +1,30 @@
+apply from: '../../java_tools/dependencies.gradle'
+
+defaultTasks 'shadowJar'
+
+dependencies {
+    api project(':config_definition_base')
+    api project(':trigger-image')
+
+    testImplementation testFixtures(project(':config_definition_base'))
+}
+
+shadowJar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.gerefi.ConfigDefinition'
+        )
+    }
+    dependencies {
+        exclude(dependency(global_libs.jsr305))
+        exclude(dependency(global_libs.annotations))
+        exclude(dependency('com.ibm.icu:icu4j:.*'))
+    }
+}
+
+test {
+	testLogging {
+		events "failed"
+		exceptionFormat = "full"
+	}
+}

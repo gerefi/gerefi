@@ -1,0 +1,187 @@
+#define TS_PROTOCOL "001"
+! These commands are used by TunerStudio and the gerEFI console
+! 0x4F ochGetCommand
+#define TS_OUTPUT_COMMAND 'O'
+! getCommand
+#define TS_OUTPUT_ALL_COMMAND 'A'
+! 0x53 queryCommand - this one is about detailed signature
+#define TS_HELLO_COMMAND 'S'
+! todo: replace all usages of TS_HELLO_COMMAND with TS_QUERY_COMMAND
+! todo#2: actually is above still the case?
+! TS auto-detect depends on well-known queryCommand value 'Q' which is not yet mentioned in https://www.tunerstudio.com/index.php/support/manuals/tsdevmanuals/137-ecu-definition-specification-aka-the-ini-document
+! that Q command is not mentioned in the .ini neither since it could happen during ECU auto-detection phase before any .ini is available
+#define TS_QUERY_COMMAND 'Q'
+! 0x6B 107
+#define TS_CRC_CHECK_COMMAND 'k'
+
+! 0x46
+#define TS_COMMAND_F 'F'
+#define TS_GET_PROTOCOL_VERSION_COMMAND_F 'F'
+! versionInfo 0x56 86 this one is only used for TS title bar
+#define TS_GET_FIRMWARE_VERSION 'V'
+! returns getFirmwareError(), works together with ind_hasFatalError
+#define TS_GET_CONFIG_ERROR 'e'
+
+#define TS_SIMULATE_CAN '>'
+
+! 0x42 burnCommand
+#define TS_BURN_COMMAND 'B'
+! 0x77
+#define TS_IO_TEST_COMMAND 'Z'
+
+#define TS_RESPONSE_OK 0
+#define TS_RESPONSE_BURN_OK 4
+
+! Engine Sniffer time stamp unit, in microseconds
+#define ENGINE_SNIFFER_UNIT_US 10
+
+#define REBOOT_COMMAND 0xbb
+
+#define SIMULATOR_TUNE_BIN_FILE_NAME_PREFIX "generated/simulator_tune_image"
+#define SIMULATOR_TUNE_BIN_FILE_NAME_SUFFIX ".bin"
+#define SIMULATOR_TUNE_BIN_FILE_NAME "generated/simulator_tune_image.bin"
+
+#define TS_COMPOSITE_ENABLE 1
+#define TS_COMPOSITE_DISABLE 2
+#define TS_COMPOSITE_READ 3
+
+#define TS_TRIGGER_SCOPE_ENABLE 4
+#define TS_TRIGGER_SCOPE_DISABLE 5
+#define TS_TRIGGER_SCOPE_READ 6
+
+#define PROTOCOL_MSG "msg"
+#define PROTOCOL_HELLO_PREFIX "***"
+
+#define TS_RESPONSE_UNDERRUN 0x80
+#define TS_RESPONSE_OVERRUN 0x81
+#define TS_RESPONSE_CRC_FAILURE 0x82
+#define TS_RESPONSE_UNRECOGNIZED_COMMAND 0x83
+#define TS_RESPONSE_OUT_OF_RANGE 0x84
+#define TS_RESPONSE_FRAMING_ERROR 0x8D
+! 0x52 82
+#define TS_READ_COMMAND 'R'
+! 0x47
+#define TS_GET_TEXT 'G'
+! 0x45
+#define TS_EXECUTE 'E'
+#define TS_ONLINE_PROTOCOL 'z'
+! 0x34
+#define TS_GET_OUTPUTS_SIZE '4'
+#define TS_GET_COMPOSITE_BUFFER_DONE_DIFFERENTLY '8'
+#define TS_GET_SCATTERED_GET_COMMAND '9'
+
+#define TS_QUERY_BOOTLOADER 'L'
+
+#define TS_QUERY_BOOTLOADER_NONE 0
+#define TS_QUERY_BOOTLOADER_OPENBLT 1
+
+! Performance tracing
+#define TS_PERF_TRACE_BEGIN '_'
+#define TS_PERF_TRACE_GET_BUFFER 'b'
+
+! 0x57 pageValueWrite
+#define TS_SINGLE_WRITE_COMMAND 'W'
+! 0x43 pageChunkWrite
+#define TS_CHUNK_WRITE_COMMAND 'C'
+
+! These commands are used exclusively by the gerEFI console
+! 0x74
+#define TS_TEST_COMMAND 't'
+
+! High speed logger commands
+#define TS_SET_LOGGER_SWITCH  'l'
+
+
+
+#define CMD_SET_SENSOR_MOCK "set_sensor_mock"
+#define CMD_RESET_SENSOR_MOCKS "reset_sensor_mocks"
+#define CMD_RESET_SIMULATOR "reset_simulator"
+#define CMD_SET "set"
+#define CMD_GET "get"
+#define CMD_ENGINESNIFFERRPMTHRESHOLD "engineSnifferRpmThreshold"
+#define CMD_INDIVIDUAL_INJECTION "set_individual_coils_ignition"
+#define CMD_MIL_BENCH "milbench"
+#define CMD_FUEL_BENCH "fuelbench"
+#define CMD_FUEL_PUMP_BENCH "fuelpumpbench"
+#define CMD_IDLE_BENCH "idlebench"
+#define CMD_SPARK_BENCH "sparkbench"
+#define CMD_STARTER_BENCH "starterbench"
+#define CMD_HPFP_BENCH "hpfpbench"
+#define CMD_AC_RELAY_BENCH "acrelaybench"
+#define CMD_FAN_BENCH "fanbench"
+#define CMD_FAN2_BENCH "fan2bench"
+#define CMD_PINS "pins"
+#define CMD_ETB_DUTY "set_etb_duty"
+#define CMD_SELF_STIMULATION "self_stimulation"
+#define CMD_EXTERNAL_STIMULATION "ext_stimulation"
+#define CMD_RPM "rpm"
+#define CMD_VSS_PIN "vss_pin"
+#define CMD_TRIGGER_PIN "set_trigger_input_pin"
+#define CMD_LOGIC_PIN "set_logic_input_pin"
+#define CMD_ALTERNATOR_PIN "set_alternator_pin"
+#define CMD_IDLE_PIN "set_idle_pin"
+#define CMD_BOOST_PIN "set_boost_pin"
+#define CMD_TRIGGER_SIMULATOR_PIN "set_trigger_simulator_pin"
+#define CMD_IGNITION_PIN "set_ignition_pin"
+#define CMD_INJECTION_PIN "set_injection_pin"
+
+#define CMD_RESET_ENGINE_SNIFFER "reset_engine_chart"
+#define CMD_FUNCTIONAL_TEST_MODE "test_mode"
+
+#define CMD_ECU_UNLOCK "unlock"
+#define CMD_ENGINE_TYPE "engine_type"
+#define CMD_INJECTION "injection"
+#define CMD_IGNITION "ignition"
+#define CMD_PWM "pwm"
+#define CMD_TRIGGERINFO "triggerinfo"
+#define CMD_WRITECONFIG "writeconfig"
+#define CMD_BURNCONFIG "burnconfig"
+#define CMD_DATE "date"
+#define CMD_REBOOT "reboot"
+#define CMD_REBOOT_DFU "reboot_dfu"
+#define CMD_REBOOT_OPENBLT "reboot_openblt"
+#define CMD_ENABLE "enable"
+#define CMD_DISABLE "disable"
+#define CMD_TRIGGER_HW_INPUT "trigger_hw_input"
+
+
+#define PROTOCOL_OUTPIN "outpin"
+#define PROTOCOL_ENGINE_SNIFFER "wave_chart"
+#define PROTOCOL_VERSION_TAG "gerEfiVersion"
+#define PROTOCOL_TEST_RESPONSE_TAG "ts_p_alive"
+#define PROTOCOL_SIGNATURE_PREFIX "gerEFI "
+#define FRONTEND_TITLE_BAR_NAME "gerEFI"
+
+! Engine Sniffer Protocol
+#define PROTOCOL_ES_DOWN "d"
+#define PROTOCOL_ES_UP "u"
+#define TOP_DEAD_CENTER_MESSAGE "r"
+
+! Engine Sniffer channel names
+#define PROTOCOL_CRANK1 "t1"
+#define PROTOCOL_CRANK2 "t2"
+
+#define CRITICAL_PREFIX "CRITICAL"
+#define COMPOSITE_PACKET_SIZE 5
+#define CONSOLE_DATA_PROTOCOL_TAG " @"
+#define LOG_DELIMITER "`"
+
+#define PROTOCOL_COIL_SHORT_PREFIX "c"
+#define PROTOCOL_INJ_SHORT_PREFIX "i"
+#define PROTOCOL_INJ_STAGE2_SHORT_PREFIX "j"
+
+#define MLQ_HEADER_SIZE 24
+#define MLQ_FIELD_HEADER_SIZE 89
+
+! TEST_CONTROL_MAGIC_WORD copy-paste while we are learning how to share between gerEFI and stim firmware
+#define CAN_BENCH_HEADER2 0x66
+
+#define BENCH_FUEL_PUMP_DURATION 3000
+#define BENCH_FAN_DURATION 2000
+#define BENCH_VVT_DURATION 300
+#define BENCH_MAIN_RELAY_DURATION 1000
+#define BENCH_STARTER_DURATION 4000
+#define BENCH_AC_RELAY_DURATION 800
+
+#define DEFAULT_SELT_STIM_RPM 1200
+#define DEFAULT_SELT_STIM_VVT0 23

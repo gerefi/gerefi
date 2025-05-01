@@ -1,0 +1,30 @@
+#define MAIN_HELP_URL "https://gerefi.com/s/hellen121nissan"
+
+
+
+
+#define ts_show_vbatt false
+#define ts_show_clt_iat_pullup false
+#define ts_show_egt false
+
+#define ts_show_etb_pins false
+#define ts_show_analog_divider false
+#define ts_show_spi false
+#define ts_show_sd_card true
+#define ts_show_can_pins false
+#define ts_show_tunerstudio_port false
+#define ts_show_can2 false
+#define ts_show_software_knock true
+#define ts_show_hardware_simulator false
+#define ts_show_sd_pins false
+#define ts_show_ignitionPinMode false
+#define ts_show_tps2 false
+#define ts_show_ford_toyota_tps_pps false
+#define ts_show_start_button false
+
+! bad temporary solution of hardware issue https://github.com/gerefi/gerefi/issues/4821
+#define MAX_TPS_PPS_DISCREPANCY 10
+
+#define CLT_UPPER_LIMIT 125
+
+#define show_Hellen121nissan_presets true

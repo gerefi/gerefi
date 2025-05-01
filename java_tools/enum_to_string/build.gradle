@@ -1,0 +1,18 @@
+defaultTasks 'shadowJar'
+
+dependencies {
+    api project(':logging')
+}
+
+shadowJar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.gerefi.EnumToString'
+        )
+    }
+
+    dependencies {
+        exclude(dependency(global_libs.jsr305))
+        exclude(dependency(global_libs.annotations))
+    }
+}

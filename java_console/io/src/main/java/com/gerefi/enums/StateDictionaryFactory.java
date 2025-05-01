@@ -1,0 +1,47 @@
+package com.gerefi.enums;
+//was generated automatically by gerEFI tool config_definition_base-all.jar based on StateDictionaryGenerator integration/LiveData.yaml on Tue Apr 08 02:09:38 UTC 2025n
+import com.gerefi.config.generated.*;
+import com.gerefi.ldmp.StateDictionary;
+
+public class StateDictionaryFactory {
+    public static void initialize(StateDictionary stateDictionary) {
+        stateDictionary.register(live_data_e.LDS_output_channels, "status_loop");
+        stateDictionary.register(live_data_e.LDS_fuel_computer, "fuel_computer");
+        stateDictionary.register(live_data_e.LDS_ignition_state, "ignition_state");
+        stateDictionary.register(live_data_e.LDS_knock_controller, "knock_controller");
+        stateDictionary.register(live_data_e.LDS_prime_injection, "prime_injection");
+        stateDictionary.register(live_data_e.LDS_tcu_controller, "tcu_controller");
+        stateDictionary.register(live_data_e.LDS_throttle_model, "throttle_model");
+        stateDictionary.register(live_data_e.LDS_high_pressure_fuel_pump, "high_pressure_fuel_pump");
+        stateDictionary.register(live_data_e.LDS_injector_model, "injector_model");
+        stateDictionary.register(live_data_e.LDS_launch_control_state, "launch_control");
+        stateDictionary.register(live_data_e.LDS_shift_torque_reduction_state, "shift_torque_reduction_controller");
+        stateDictionary.register(live_data_e.LDS_antilag_system_state, "antilag_system");
+        stateDictionary.register(live_data_e.LDS_boost_control, "boost_control");
+        stateDictionary.register(live_data_e.LDS_ac_control, "ac_control");
+        stateDictionary.register(live_data_e.LDS_nitrous_control_state, "nitrous_control_state");
+        stateDictionary.register(live_data_e.LDS_fan_control0, "fan_control");
+        stateDictionary.register(live_data_e.LDS_fan_control1, "fan_control");
+        stateDictionary.register(live_data_e.LDS_fuel_pump_control, "fuel_pump");
+        stateDictionary.register(live_data_e.LDS_main_relay, "main_relay");
+        stateDictionary.register(live_data_e.LDS_engine_state, "engine");
+        stateDictionary.register(live_data_e.LDS_tps_accel_state, "accel_enrichment");
+        stateDictionary.register(live_data_e.LDS_trigger_central, "trigger_central");
+        stateDictionary.register(live_data_e.LDS_trigger_state0, "trigger_decoder");
+        stateDictionary.register(live_data_e.LDS_trigger_state1, "trigger_decoder");
+        stateDictionary.register(live_data_e.LDS_trigger_state2, "trigger_decoder");
+        stateDictionary.register(live_data_e.LDS_trigger_state3, "trigger_decoder");
+        stateDictionary.register(live_data_e.LDS_trigger_state4, "trigger_decoder");
+        stateDictionary.register(live_data_e.LDS_trigger_state_primary, "trigger_decoder");
+        stateDictionary.register(live_data_e.LDS_wall_fuel_state, "wall_fuel");
+        stateDictionary.register(live_data_e.LDS_idle_state, "idle_thread");
+        stateDictionary.register(live_data_e.LDS_electronic_throttle0, "electronic_throttle");
+        stateDictionary.register(live_data_e.LDS_electronic_throttle1, "electronic_throttle");
+        stateDictionary.register(live_data_e.LDS_wideband_state0, "AemXSeriesLambda");
+        stateDictionary.register(live_data_e.LDS_wideband_state1, "AemXSeriesLambda");
+        stateDictionary.register(live_data_e.LDS_dc_motors, "dc_motors");
+        stateDictionary.register(live_data_e.LDS_sent_state, "sent");
+        stateDictionary.register(live_data_e.LDS_vvt, "vvt");
+        stateDictionary.register(live_data_e.LDS_lambda_monitor, "lambda_monitor");
+    }
+}

@@ -1,0 +1,22 @@
+/**
+ * @file	device_mpu_util.h for F4
+ *
+ * @date Jul 27, 2014
+ * @author Bruno Ferreira, (c) 2012-2020
+ */
+
+#pragma once
+
+#define MCU_SERIAL_NUMBER_LOCATION (uint8_t*)(0x1FFF7A10)
+
+#define SPI_CR1_8BIT_MODE 0
+#define SPI_CR2_8BIT_MODE 0
+
+#define SPI_CR1_16BIT_MODE SPI_CR1_DFF
+#define SPI_CR2_16BIT_MODE 0
+
+// TODO
+#define SPI_CR1_24BIT_MODE 0
+#define SPI_CR2_24BIT_MODE 0
+
+#define ADC_MAX_VALUE 4095

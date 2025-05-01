@@ -1,0 +1,5 @@
+Here we have source code for gerEFI console: while [TunerStudio](http://www.tunerstudio.com/index.php/products/tuner-studio) is the primary calibration frontend application we need secondary app for firmware update and some advanced troubleshooting. One day we shall combine but not yet :(
+
+See also http://gerefi.com/build_server/ for pre-compiled full bundle
+
+🔴 not main folder for java code - it's [../java_tools](../java_tools) where primary build.gradle is located 🔴

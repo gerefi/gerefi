@@ -1,0 +1,9 @@
+current_configuration.zip
+current_configuration.msq
+downloaded_tunes
+.gradle
+**/gerefi_tool.log
+log
+# PTrace files
+*.json
+triggers

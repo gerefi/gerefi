@@ -1,0 +1,35 @@
+configurations {
+    // icu4j is huge: https://en.wikipedia.org/wiki/International_Components_for_Unicode
+    all*.exclude group: 'com.ibm.icu', module: 'icu4j'
+}
+
+dependencies {
+    implementation project(':trigger-ui')
+    implementation project(':autotest')
+    implementation project(':luaformatter')
+    implementation project(':config_definition_base')
+
+    implementation global_libs.antlr
+    implementation 'com.miglayout:miglayout-swing:4.1'
+    implementation 'org.bidib.jbidib.eu.hansolo:SteelSeries:3.9.31.2'
+    implementation files('../lib/trident-6.2.jar')
+/*
+    implementation files('../lib/dfu/dfu_java.jar')
+    implementation files('../lib/dfu/IntelHexParser.jar')
+*/
+    testImplementation testFixtures(project(':ecu_io'))
+}
+
+shadowJar {
+    base {
+        archivesName = "${rootDir}/../console/gerefi_console"
+        archiveClassifier = ''
+    }
+
+    manifest {
+        attributes(
+                'Build-Jdk'      : "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+                'Main-Class': 'com.gerefi.Launcher'
+        )
+    }
+}

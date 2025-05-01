@@ -1,0 +1,47 @@
+name: Generate Kicad Diffs
+
+on:
+  workflow_dispatch:
+#  push:
+#    paths:
+#    - 'hardware/**'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
+
+    - name: Checkout Submodules
+      run: |
+        git submodule update --init --depth=1 hardware/gerefi_lib
+
+    - name: Install sshpass, kicad, and tk bindings
+      run: |
+        sudo bash misc/actions/add-ubuntu-latest-apt-mirrors.sh
+        sudo add-apt-repository --yes ppa:kicad/kicad-7.0-releases
+        sudo apt-get install sshpass kicad python3-pip python3-tk scour librsvg2-bin
+        pip install python-dateutil pygubu
+
+    - name: Get KiCad-Diff
+      run: |
+        git clone https://github.com/leoheck/KiCad-Diff.git
+        cd KiCad-Diff
+        git reset --hard 4d018507e511129951a332a0d2d14e1c11be3eaa
+
+    - name: Set SSH variables
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      run: |
+        if [ "${{github.event_name}}" = "push" ] && [ "${{github.ref}}" = "refs/heads/master" ]; then
+          echo "GEREFI_SSH_SERVER=${{secrets.GEREFI_SSH_SERVER}}" >> $GITHUB_ENV
+          echo "GEREFI_SSH_USER=${{secrets.GEREFI_SSH_USER}}" >> $GITHUB_ENV
+          echo "GEREFI_SSH_PASS=${{secrets.GEREFI_SSH_PASS}}" >> $GITHUB_ENV
+        fi
+
+    - name: Generate diffs
+      working-directory: ./hardware
+      run: bash ./gerefi_lib/generate_diffs.sh

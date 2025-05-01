@@ -1,0 +1,30 @@
+apply from: '../../android/dependencies.gradle'
+
+dependencies {
+    api project(':core_ui')
+    api project(':shared_ui')
+    api project(':ecu_io')
+    api project(':inifile')
+    api project(':ts_plugin_launcher')
+    testImplementation global_libs.mockito
+    testImplementation testFixtures( project(':ecu_io'))
+    implementation files('../ts_plugin_launcher/lib/TunerStudioPluginAPI.jar')
+}
+
+jar {
+    manifest {
+        attributes(
+                'Built-Date': new Date().format('yyyy-MM-dd HH:mm:ss'),
+                'Build-Jdk'      : "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+                'Signature-Vendor': 'gerEFI LLC',
+        )
+    }
+}
+
+shadowJar {
+    archiveBaseName = 'gerefi_plugin_body'
+    archiveClassifier = ''
+    manifest {
+        inheritFrom project.tasks.jar.manifest
+    }
+}

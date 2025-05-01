@@ -1,0 +1,5 @@
+dependencies {
+    api project(':config_definition')
+    api project(':ecu_io')
+    testFixturesApi project(':ecu_io')
+}

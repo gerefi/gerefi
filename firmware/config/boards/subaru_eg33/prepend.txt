@@ -1,0 +1,37 @@
+!TODO: understand this.
+
+#define ts_show_hip9011 true
+#define ts_show_egt false
+
+#define ts_show_etb_pins true
+#define ts_show_analog_divider false
+#define ts_show_spi true
+#define ts_show_sd_card true
+#define ts_show_can_pins true
+#define ts_show_tunerstudio_port false
+#define ts_show_sd_pins false
+#define ts_show_output_diag true
+#define ts_show_mc33810 true
+
+#define ts_show_spi1_enable false
+#define ts_show_spi1_pins false
+#define ts_show_spi2_enable true
+#define ts_show_spi2_pins true
+#define ts_show_spi3_enable fasle
+#define ts_show_spi3_pins fasle
+#define ts_show_spi4_enable true
+#define ts_show_spi4_pins true
+#define ts_show_spi5_enable true
+#define ts_show_spi5_pins true
+#define ts_show_spi6_enable false
+#define ts_show_spi6_pins false
+
+#define CLT_UPPER_LIMIT 125
+#define TRAILING_SPARK_SIZE 2
+! lack of flash drama big time?!
+#define SCRIPT_CURVE_16 2
+#define SCRIPT_TABLE_8 2
+
+#define BLEND_TABLE_COUNT 2
+
+#define TS_BLOCK_READ_TIMEOUT 300

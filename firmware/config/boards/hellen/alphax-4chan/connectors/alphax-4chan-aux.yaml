@@ -1,0 +1,103 @@
+meta: config/boards/hellen_meta.h
+
+pins:
+  - pin: X1
+    meta: H144_IN_TPS2
+    function: Analog Input 1
+    class: analog_inputs
+    ts_name: ___ - AIN1 and D5 on older boards
+
+  - pin: X2
+    meta: H144_LS_5
+    function: Inj 5
+    class: outputs
+    type: ls
+    ts_name: Aux2 - Inj 5
+
+  - pin: X3
+    meta: H144_IN_PPS2
+    function: Analog Input 2
+    class: analog_inputs
+    ts_name: ___ - AIN2
+
+  - pin: X4
+    meta: H144_LS_6
+    function: Inj 6
+    class: outputs
+    type: ls
+    ts_name: Aux4 - Inj 6
+
+  - pin: X5
+    meta: H144_IN_MAP1
+    function: Analog Input 3
+    class: analog_inputs
+    ts_name: ___ - AIN3
+
+  - pin: X6
+    meta: H144_IGN_5
+    function: Ignition 5
+    class: outputs
+    ts_name: Aux6 - Ignition 5
+
+  - pin: X7
+    meta: H144_IN_AUX3
+    function: Analog Input 4
+    class: analog_inputs
+    ts_name: ___ - AIN4
+
+  - pin: X8
+    meta: H144_IGN_6
+    function: Ignition 6
+    class: outputs
+    ts_name: Aux8 - Ignition 6
+
+  - pin: X9
+    meta: H144_OUT_PWM7
+    function: HighSide 1 2A-ish
+    class: outputs
+    ts_name: Aux9 - High1 legacy F2
+
+  - pin: X10
+    meta: H144_OUT_PWM8
+    function: HighSide 2 2A-ish
+    class: outputs
+    ts_name: Aux10 - High2 legacy F4
+
+info:
+  directory: hellen/alphax-4chan
+  cid: aux
+  title: AlphaX 4chan
+  image:
+    file: alphax-4chan-aux.jpg
+  pins:
+    - pin: X1
+      x: 547
+      y: 230
+    - pin: X2
+      x: 452
+      y: 230
+    - pin: X3
+      x: 356
+      y: 230
+    - pin: X4
+      x: 262
+      y: 230
+    - pin: X5
+      x: 167
+      y: 230
+
+    - pin: X6
+      x: 547
+      y: 142
+    - pin: X7
+      x: 452
+      y: 142
+    - pin: X8
+      x: 356
+      y: 142
+    - pin: X9
+      x: 262
+      y: 142
+    - pin: X10
+      x: 167
+      y: 142

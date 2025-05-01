@@ -1,0 +1,12 @@
+#
+# sudo systemctl enable gerefi
+#
+
+[Unit]
+Description=gerEFI systemd
+
+[Service]
+ExecStart=/rw/startup_root.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,29 @@
+#define MAIN_HELP_URL "https://gerefi.com/s/4chan"
+
+
+
+
+#define ts_show_vbatt false
+#define ts_show_clt_iat_pullup false
+#define ts_show_egt false
+#define ts_show_etb_pins false
+#define ts_show_analog_divider false
+#define ts_show_spi false
+#define ts_show_can_pins false
+#define ts_show_tunerstudio_port true
+#define ts_show_can2 false
+#define ts_show_software_knock true
+#define ts_show_vr_threshold_all true
+#define ts_show_vr_threshold_pins false
+#define ts_show_vr_threshold_2 true
+#define ts_show_tcu true
+#define ts_show_gdi true
+
+#define show_4chan_presets true
+#define ts_show_ign_key_analog_input true
+! todo: insert actual value here!
+#define IGN_KEY_DIVIDER 3
+
+#define TS_TRIGGER_SCOPE_CHANNEL_1_NAME "C2/C3 Crank VR"
+#define TS_TRIGGER_SCOPE_CHANNEL_2_NAME "E5/E6 Cam VR"
+

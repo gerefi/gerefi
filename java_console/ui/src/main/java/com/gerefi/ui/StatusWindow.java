@@ -1,0 +1,51 @@
+package com.gerefi.ui;
+
+import com.gerefi.core.ui.FrameHelper;
+import com.gerefi.ui.widgets.StatusPanel;
+import com.gerefi.io.UpdateOperationCallbacks;
+import com.gerefi.ui.util.UiUtils;
+
+import org.jetbrains.annotations.NotNull;
+
+import javax.swing.*;
+
+/**
+ * Bruno Ferreira, (c) 2013-2020
+ * 3/7/2015
+ */
+public class StatusWindow {
+    // todo: extract driver from console bundle? find a separate driver bundle?
+    StatusPanel content = new StatusPanel();
+
+    public static UpdateOperationCallbacks createAndShowFrame(final String frameTitle) {
+        final StatusWindow statusWindow = new StatusWindow();
+        statusWindow.showFrame(frameTitle);
+        return statusWindow.getContent();
+    }
+
+    @NotNull
+    protected final FrameHelper frameHelper = new FrameHelper();
+
+    public StatusWindow() {
+    }
+
+    @NotNull
+    public FrameHelper getFrameHelper() {
+        return frameHelper;
+    }
+
+    public StatusPanel getContent() {
+        return content;
+    }
+
+    public JFrame getFrame() {
+        return frameHelper.getFrame();
+    }
+
+    public void showFrame(String title) {
+        frameHelper.getFrame().setTitle(title);
+        frameHelper.showFrame(content, false);
+        UiUtils.centerWindow(frameHelper.getFrame());
+        content.clear(); // let's remove stuff from previous invocation
+    }
+}

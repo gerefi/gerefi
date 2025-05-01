@@ -1,0 +1,62 @@
+#
+# ACCESS_TOKEN - Personal Access Token with "public_repo" permission
+#
+#
+# Note: This action will not run on all file changes!
+# Some file extensions will not trigger an action run,
+# but they will be synced the next time a file is changed.
+# .png and .jpg files do not trigger runs.
+# .md, .txt, and .html files do.
+# I have not tested any others.
+# If we could set this up to trigger on a push to gerefi.wiki, that
+# would be optimal, but unfortunately that does not seem to be possible.
+#
+# the opposite sync is https://github.com/gerefi/gerefi_documentation/blob/master/.github/workflows/sync-wiki.yaml
+#
+
+name: Sync Wiki
+
+on: gollum
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'actions-user' }}
+
+    steps:
+    - name: Check out docs repo
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        repository: gerefi/gerefi_documentation
+        persist-credentials: false
+
+    - name: Merge from gerefi/wiki
+      run: |
+        git remote add best-wiki-git https://github.com/gerefi/gerefi.wiki.git
+        git fetch best-wiki-git
+        if [ $(git diff best-wiki-git/master | wc -l) -eq 0 ]; then
+        echo "skip=true" >> $GITHUB_ENV
+        exit 0
+        fi
+        git show --name-only  best-wiki-git/master
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        # merge, but don't commit the merge
+        git merge --no-ff --no-commit best-wiki-git/master
+        # unstage the file
+        #    TL;DR bad magic github security policy that causes issues when someone commits a changed workflow file to gerefi/gerefi.wiki.git
+        #    As a workaround we undo any changes to workflow files.
+        git reset HEAD .github/workflows/sync-wiki2.yaml .github/workflows/sync-wiki3.yaml
+        # revert the file to its original state
+        git checkout -- .github/workflows/sync-wiki2.yaml .github/workflows/sync-wiki3.yaml
+        # commit the merge
+        git commit -m "merge gerEFI wiki"
+
+    - name: Push changes to gerefi_documentation technical wiki
+      uses: ad-m/github-push-action@master
+      if: ${{ env.skip != 'true' }}
+      with:
+        repository: gerefi/gerefi_documentation
+        github_token: ${{ secrets.ACCESS_TOKEN }}
+        branch: master

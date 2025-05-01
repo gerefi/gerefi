@@ -1,0 +1,1 @@
+1) resolved in R0.2 -- SPI silk screen is not correct.

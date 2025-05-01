@@ -1,0 +1,159 @@
+package com.gerefi.ui.console;
+
+import com.devexperts.logging.Logging;
+import com.gerefi.*;
+import com.gerefi.core.ui.AutoupdateUtil;
+import com.gerefi.core.ui.FrameHelper;
+import com.gerefi.io.*;
+import com.gerefi.maintenance.VersionChecker;
+import com.gerefi.IoUtil;
+import com.gerefi.binaryprotocol.BinaryProtocol;
+import com.gerefi.config.generated.Integration;
+import com.gerefi.core.EngineState;
+import com.gerefi.io.CommandQueue;
+import com.gerefi.io.ConnectionFailedListener;
+import com.gerefi.io.ConnectionStateListener;
+import com.gerefi.io.ConnectionStatusLogic;
+import com.gerefi.io.ConnectionStatusValue;
+import com.gerefi.io.ConnectionWatchdog;
+import com.gerefi.io.InvocationConfirmationListener;
+import com.gerefi.io.LinkManager;
+import com.gerefi.io.tcp.BinaryProtocolServer;
+import com.gerefi.core.preferences.storage.Node;
+import com.gerefi.util.IoUtils;
+import org.jetbrains.annotations.NotNull;
+
+import javax.swing.*;
+import java.util.Objects;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.ZoneOffset;
+
+import static com.devexperts.logging.Logging.getLogging;
+import static com.gerefi.core.preferences.storage.PersistentConfiguration.getConfig;
+
+public class MainFrame {
+    private static final Logging log = getLogging(Launcher.class);
+
+    @NotNull
+    private final ConsoleUI consoleUI;
+    private final TabbedPanel tabbedPane;
+
+    /**
+     * @see StartupFrame
+     */
+    private final FrameHelper frame = new FrameHelper() {
+        @Override
+        protected void onWindowOpened() {
+            log.info("onWindowOpened");
+            windowOpenedHandler();
+        }
+
+        @Override
+        protected void onWindowClosed() {
+            /**
+             * here we would close the port and log a message about it
+             */
+            windowClosedHandler();
+            /**
+             * here we would close the log file
+             */
+            log.info("onWindowClosed");
+        }
+    };
+
+    public final ConnectionFailedListener listener;
+
+    public MainFrame(ConsoleUI consoleUI, TabbedPanel tabbedPane) {
+        this.consoleUI = Objects.requireNonNull(consoleUI);
+        this.tabbedPane = tabbedPane;
+        listener = (String s) -> {
+        };
+    }
+
+    private void windowOpenedHandler() {
+        setTitle();
+        ConnectionStatusLogic.INSTANCE.addListener(isConnected -> SwingUtilities.invokeLater(() -> {
+            setTitle();
+            // this would repaint status label
+            AutoupdateUtil.trueLayout(tabbedPane.tabbedPane);
+            if (ConnectionStatusLogic.INSTANCE.getValue() == ConnectionStatusValue.CONNECTED) {
+                LocalDateTime dateTime = LocalDateTime.now(ZoneOffset.systemDefault());
+                String isoDateTime = dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                consoleUI.uiContext.getLinkManager().execute(() -> consoleUI.uiContext.getCommandQueue().write(IoUtil.getSetCommand(Integration.CMD_DATE) +
+                                " " + isoDateTime, CommandQueue.DEFAULT_TIMEOUT,
+                        InvocationConfirmationListener.VOID, false));
+            }
+        }));
+
+        final LinkManager linkManager = consoleUI.uiContext.getLinkManager();
+        linkManager.getConnector().connectAndReadConfiguration(new BinaryProtocol.Arguments(true), new ConnectionStateListener() {
+            @Override
+            public void onConnectionFailed(String errorMessage) {
+                log.error("onConnectionFailed " + errorMessage);
+                String message = "This copy of gerEFI console is not compatible with this version of firmware\r\n" +
+                        errorMessage;
+                JOptionPane.showMessageDialog(frame.getFrame(), message);
+            }
+
+            @Override
+            public void onConnectionEstablished() {
+                ConnectionWatchdog.init(linkManager);
+
+                SwingUtilities.invokeLater(() -> {
+//                    tabbedPane.settingsTab.showContent(linkManager);
+                    tabbedPane.logsManager.showContent();
+                    /**
+                     * todo: we are definitely not handling reconnect properly, no code to shut down old instance of server
+                     * before launching new instance
+                     */
+                    new BinaryProtocolServer().start(linkManager);
+                });
+
+            }
+        });
+
+        consoleUI.uiContext.getLinkManager().getEngineState().registerStringValueAction(Integration.PROTOCOL_VERSION_TAG, new EngineState.ValueCallback<String>() {
+            @Override
+            public void onUpdate(String firmwareVersion) {
+                Launcher.firmwareVersion.set(firmwareVersion);
+                setTitle();
+                VersionChecker.getInstance().onFirmwareVersion(firmwareVersion);
+            }
+        });
+    }
+
+    public FrameHelper getFrame() {
+        return frame;
+    }
+
+    private void setTitle() {
+        String consoleVersion = "Console " + Launcher.CONSOLE_VERSION;
+        String frameTitle;
+        if (ConnectionStatusLogic.INSTANCE.isConnected()) {
+            BinaryProtocol bp = consoleUI.uiContext.getLinkManager().getCurrentStreamState();
+            String signature = bp == null ? "not loaded" : bp.signature;
+            frameTitle = consoleVersion + "; firmware=" + Launcher.firmwareVersion.get() + "@" + consoleUI.getPort() + " " + signature;
+            frame.getFrame().setTitle(frameTitle);
+        } else {
+            frameTitle = "DISCONNECTED " + consoleVersion;
+        }
+        frame.getFrame().setTitle(frameTitle);
+    }
+
+    private void windowClosedHandler() {
+        /**
+         * looks like reconnectTimer in {@link com.gerefi.ui.RpmPanel} keeps AWT alive. Simplest solution would be to 'exit'
+         */
+        SimulatorHelper.onWindowClosed();
+        Node root = getConfig().getRoot();
+        root.setProperty("version", Launcher.CONSOLE_VERSION);
+        root.setProperty(ConsoleUI.TAB_INDEX, tabbedPane.tabbedPane.getSelectedIndex());
+        consoleUI.uiContext.DetachedRepositoryINSTANCE.saveConfig();
+        getConfig().save();
+        BinaryProtocol bp = consoleUI.uiContext.getLinkManager().getCurrentStreamState();
+        if (bp != null && !bp.isClosed())
+            bp.close(); // it could be that serial driver wants to be closed explicitly
+        IoUtils.exit("windowClosedHandler", 0);
+    }
+}

@@ -1,0 +1,333 @@
+meta: config/boards/hellen_mm176_meta.h
+
+pins:
+  - pin: 1C
+    function: DC1+
+    type: etb
+    color: blue
+
+  - pin: 2C
+    function: ETB+
+    type: etb
+    color: blue
+
+  - pin: 3C
+    function: DC1-
+    type: etb
+    color: white
+
+  - pin: 4C
+    function: ETB-
+    type: etb
+    color: white
+
+  - pin: 5C
+    function: High Side 1
+    meta: MM176_OUT_PWM8
+    class: outputs
+    ts_name: 5C - High Side 1
+
+  - pin: 6C
+    function: High Side 2
+    # we have weird HS2<>HS3 and HS3<>HS2 on the schematics, let's just accept it
+    meta: MM176_OUT_IO2
+    class: outputs
+    ts_name: 6C - High Side 2
+    color: orange
+
+  - pin: 7C
+    function: High Side 3
+# we have weird HS2<>HS3 and HS3<>HS2 on the schematics, let's just accept it
+    meta: MM176_OUT_IO1
+    class: outputs
+    ts_name: 7C - High Side 3
+    color: purple
+
+  - pin: 8C
+    function: Low Side 3
+    meta: MM176_OUT_IO3
+    class: outputs
+    ts_name: 8C - Low Side 3
+    color: purple
+
+  - pin: 9C
+    function: Low Side 4
+    meta: MM176_OUT_IO4
+    class: outputs
+    ts_name: 9C - Low Side 4
+    color: yellow
+
+
+  - pin: 10C
+    function: DC2-
+    type: etb
+    color: yellow
+
+  - pin: 11C
+    meta: MM176_IGN1
+    class: outputs
+    function: Smart Ignition 1 Output
+    type: ign
+    ts_name: 11C - Ignition 1
+    color: green
+
+  - pin: 12C
+    function: Power GND
+    type: gnd
+    color: yellow
+
+  - pin: 13C
+    meta: MM176_IGN3
+    class: outputs
+    function: Smart Ignition 3 Output
+    type: ign
+    ts_name: 13C - Ignition 3
+    color: blue
+
+  - pin: 14C
+    meta: MM176_IGN5
+    class: outputs
+    function: Smart Ignition 5 Output
+    type: ign
+    ts_name: 14C - Ignition 5
+    color: green
+
+  - pin: 15C
+    meta: MM176_IGN8
+    class: outputs
+    function: Smart Ignition 8 Output
+    type: ign
+    ts_name: 15C - Ignition 8
+    color: orange/brown
+
+  - pin: 16C
+    function: CAN2 bus low (CAN2L)
+    type: can
+    color: blue
+
+  - pin: 17C
+    function: Low Side 5
+    meta: MM176_OUT_IO5
+    class: outputs
+    ts_name: 17C - Low Side 5
+
+
+  - pin: 18C
+    function: DC3-
+    type: etb
+
+  - pin: 19C
+    meta: MM176_IGN2
+    class: outputs
+    function: Smart Ignition 2 Output
+    type: ign
+    ts_name: 19C - Ignition 2
+    color: white
+
+  - pin: 20C
+    meta: MM176_IGN4
+    class: outputs
+    function: Smart Ignition 4 Output
+    type: ign
+    ts_name: 20C - Ignition 4
+    color: orange/brown
+
+  - pin: 21C
+    meta: MM176_IGN7
+    class: outputs
+    function: Smart Ignition 7 Output
+    type: ign
+    ts_name: 21C - Ignition 7
+    color: blue
+
+  - pin: 22C
+    function: Power GND
+    type: gnd
+    color: orange
+
+  - pin: 23C
+    meta: MM176_SPI3_MISO
+    class: outputs
+    function: Smart Ignition 10 Output
+    type: ign
+    ts_name: 23C - Ignition 10
+    color: orange
+
+  - pin: 24C
+    function: CAN2 bus high (CAN2H)
+    type: can
+    color: green
+
+  - pin: 25C
+    function: Low Side 6
+    meta: MM176_OUT_IO6
+    class: outputs
+    ts_name: 25C - Low Side 6
+
+
+  - pin: 26C
+    function: DC3+
+    type: etb
+    color: blue
+
+  - pin: 27C
+    function: DC2+
+    type: etb
+    color: blue
+
+  - pin: 28C
+    meta: MM176_IGN6
+    class: outputs
+    function: Smart Ignition 6 Output
+    type: ign
+    ts_name: 28C - Ignition 6
+    color: white
+
+  - pin: 29C
+    meta: MM176_SPI3_SCK
+    class: outputs
+    function: Smart Ignition 9 Output
+    type: ign
+    ts_name: 29C - Ignition 9
+
+  - pin: 30C
+    meta: MM176_SPI3_MOSI
+    class: outputs
+    function: Smart Ignition 11 Output
+    type: ign
+    ts_name: 30C - Ignition 11
+
+  - pin: 31C
+    meta: MM176_SPI3_CS
+    class: outputs
+    function: Smart Ignition 12 Output
+    type: ign
+    ts_name: 31C - Ignition 12
+    color: orange
+
+  - pin: 32C
+    function: CAN bus high (CANH)
+    type: can
+    color: green
+
+  - pin: 33C
+    function: CAN bus low (CANL)
+    type: can
+    color: blue
+
+  - pin: 34C
+    function: Low Side 7
+    meta: MM176_OUT_IO7
+    class: outputs
+    ts_name: 34C - Low Side 7
+
+info:
+  title: AlphaX Platinum
+  cid: c
+  # directory see D.yaml
+  name: AlphaX Platinum
+  image:
+    file: 34pins-4k.jpg
+  pins:
+    - pin: 1C
+      x: 75
+      y: 90
+    - pin: 2C
+      x: 95
+      y: 90
+    - pin: 3C
+      x: 120
+      y: 90
+    - pin: 4C
+      x: 145
+      y: 90
+    - pin: 5C
+      x: 165
+      y: 90
+    - pin: 6C
+      x: 190
+      y: 90
+    - pin: 7C
+      x: 215
+      y: 90
+    - pin: 8C
+      x: 240
+      y: 90
+    - pin: 9C
+      x: 265
+      y: 90
+    - pin: 10C
+      x: 85
+      y: 120
+    - pin: 11C
+      x: 105
+      y: 120
+    - pin: 12C
+      x: 130
+      y: 120
+    - pin: 13C
+      x: 155
+      y: 120
+    - pin: 14C
+      x: 180
+      y: 120
+    - pin: 15C
+      x: 205
+      y: 120
+    - pin: 16C
+      x: 225
+      y: 120
+    - pin: 17C
+      x: 245
+      y: 120
+    - pin: 18C
+      x: 85
+      y: 150
+    - pin: 19C
+      x: 110
+      y: 150
+    - pin: 20C
+      x: 130
+      y: 150
+    - pin: 21C
+      x: 155
+      y: 150
+    - pin: 22C
+      x: 180
+      y: 150
+    - pin: 23C
+      x: 205
+      y: 150
+    - pin: 24C
+      x: 225
+      y: 150
+    - pin: 25C
+      x: 245
+      y: 150
+    - pin: 26C
+      x: 74
+      y: 180
+    - pin: 27C
+      x: 98
+      y: 180
+    - pin: 28C
+      x: 122
+      y: 180
+    - pin: 29C
+      x: 146
+      y: 180
+    - pin: 30C
+      x: 170
+      y: 180
+    - pin: 31C
+      x: 195
+      y: 180
+    - pin: 32C
+      x: 220
+      y: 180
+    - pin: 33C
+      x: 245
+      y: 180
+    - pin: 34C
+      x: 265
+      y: 180

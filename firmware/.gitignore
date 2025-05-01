@@ -1,0 +1,18 @@
+openocd
+benchmark.txt
+gen_*.log
+deliver/
+gerefi_tool.log
+build*
+
+# precompiled headers
+*.h.gch
+*.h.gcno
+
+# tools
+gcc-arm-none-eabi
+arm-gnu*
+
+# bundle temp folder
+gerefi.snapshot.*
+gerefi.ini.zip

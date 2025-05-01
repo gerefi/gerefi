@@ -1,0 +1,268 @@
+meta: config/boards/hellen_meta.h
+
+pins:
+  - pin: A1
+    function: Power Ground
+    type: gnd
+    color: black
+
+  - pin: A2
+    meta: H144_IN_VBATT
+    class: analog_inputs
+    function: +12V
+    ts_name: A2 Battery Sense
+    type: 12v
+    color: red
+  
+  - pin: A3
+    meta: H144_OUT_PWM2
+    class: outputs
+    function: Fuel Pump Relay Output (low)
+    type: ls
+    ts_name: A3 - Fuel Pump
+    color: purple
+
+  - pin: A4
+    meta: H144_OUT_PWM3
+    class: outputs
+    function: Tachometer Output
+    ts_name: A4 - Tachometer
+    color: purple
+
+  - pin: A5
+    function: Sensor Ground
+    type: gnd
+    color: brown
+
+  - pin: A6
+    meta: H144_IGN_1
+    class: outputs
+    function: Smart Ignition A Output
+    type: ign
+    ts_name: A6 - Ignition A
+    color: yellow
+
+  - pin: A7
+    meta: H144_IGN_2
+    class: outputs
+    function: Smart Ignition B Output
+    type: ign
+    ts_name: A7 - Ignition B
+    color: yellow
+
+  - pin: A8
+    meta: H144_LS_1
+    function: Injector A Output
+    class: outputs
+    type: inj
+    ts_name: A8 - Injector A
+    color: blue
+
+  - pin: B1
+    function: Power Ground
+    type: gnd
+    color: black
+
+  - pin: On-board MAP
+    meta: H144_IN_MAP3
+    class: analog_inputs
+    function: MAP Sensor Input
+    ts_name: On-board MAP
+    color: orange
+
+  - pin: B2
+    meta: H144_IN_MAP2
+    class: analog_inputs
+    function: MAP Sensor Input
+    ts_name: B2 - MAP
+    color: orange
+
+  - pin: B3
+    meta: H144_IN_IAT
+    class: analog_inputs
+    function: IAT Sensor Input
+    ts_name: B3 - IAT
+    color: orange
+
+  - pin: B4
+    meta: H144_IN_O2S2
+    class: analog_inputs
+    function: O2 Sensor Input
+    ts_name: B4 - O2
+    color: orange
+
+  - pin: B5
+    meta: H144_IN_TPS
+    class: analog_inputs
+    function: TPS Sensor Input
+    ts_name: B5 - TPS
+    color: orange
+
+  - pin: B6
+    function: Sensor +5v Power Feed
+    type: 5v
+    color: orange
+
+  - pin: B7
+    meta: H144_IN_CLT
+    class: analog_inputs
+    function: CLT Sensor Input
+    ts_name: ___ - CLT
+    color: orange
+
+  - pin: B8
+    meta: H144_LS_2
+    function: Injector B Output
+    class: outputs
+    type: inj
+    ts_name: ___ - Injector B
+    color: blue
+
+  - pin: C1
+    meta: H144_OUT_PWM4
+    class: outputs
+    function: Fan Relay or 5A Power Output (low)
+    type: ls
+    ts_name: ___ - Fan Relay
+    color: purple
+
+  - pin: C2
+    id: [H144_IN_D_3, H144_IN_D_3]
+    class: [event_inputs, switch_inputs]
+    function: Crank Sensor -
+    type: hall
+    ts_name: ___ - Crank- (hall)
+    color: white
+
+  - pin: C3
+    id: [H144_IN_D_1, H144_IN_D_1]
+    class: [event_inputs, switch_inputs]
+    function: Crank Sensor +
+    type: hall
+    ts_name: ___ - Crank+ (hall)
+    color: gray
+
+  - pin: C2C3
+    meta: H144_IN_CRANK
+    class: event_inputs
+    function: Crank Sensor (VR)
+    type: hall
+    ts_name: C2/C3 Crank Sensor VR
+    color: gray
+
+  - pin: C4
+    meta: H144_IN_VSS
+    class: switch_inputs
+    function: 2Step Digital Input
+    type: hall
+    ts_name: C4 - 2Step/Digital
+    color: gray
+
+  - pin: C5
+    function: CAN bus high (CANH)
+    type: can
+    color: green
+
+  - pin: C6
+    function: CAN bus low (CANL)
+    type: can
+    color: blue
+
+  - pin: C7
+    id: [H144_IN_CAM, H144_IN_CAM, EFI_ADC_6]
+    class: [event_inputs, switch_inputs, analog_inputs]
+    function: Camshaft HALL Sensor or Generic Digital Input
+    type: hall
+    ts_name: ___ - CAM Hall/Digital
+    color: brown
+
+  - pin: C8
+    meta: H144_OUT_PWM1
+    class: outputs
+    function: Idle Output (low)
+    type: ls
+    ts_name: ___ - Idle
+    color: purple
+
+info:
+  title: AlphaX 2chan
+  name: AlphaX 2chan
+  board_url: https://gerefi.com/s/2chan
+  directory: hellen/alphax-2chan
+  image:
+    file: alphax-2chan.jpg
+  pins:
+    - pin: A8
+      x: 316
+      y: 239
+    - pin: A7
+      x: 413
+      y: 239
+    - pin: A6
+      x: 489
+      y: 239
+    - pin: A5
+      x: 564
+      y: 239
+    - pin: A4
+      x: 635
+      y: 239
+    - pin: A3
+      x: 710
+      y: 239
+    - pin: A2
+      x: 786
+      y: 239
+    - pin: A1
+      x: 882
+      y: 239
+
+    - pin: B8
+      x: 316
+      y: 352
+    - pin: B7
+      x: 413
+      y: 352
+    - pin: B6
+      x: 489
+      y: 352
+    - pin: B5
+      x: 564
+      y: 352
+    - pin: B4
+      x: 635
+      y: 352
+    - pin: B3
+      x: 710
+      y: 352
+    - pin: B2
+      x: 786
+      y: 352
+    - pin: B1
+      x: 882
+      y: 352
+
+    - pin: C8
+      x: 316
+      y: 466
+    - pin: C7
+      x: 413
+      y: 466
+    - pin: C6
+      x: 489
+      y: 466
+    - pin: C5
+      x: 564
+      y: 466
+    - pin: C4
+      x: 635
+      y: 466
+    - pin: C3
+      x: 710
+      y: 466
+    - pin: C2
+      x: 786
+      y: 466
+    - pin: C1
+      x: 882
+      y: 466

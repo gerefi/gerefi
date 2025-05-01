@@ -1,0 +1,27 @@
+/*
+ * @file mazda_miata_1_6.h
+ *
+ * @date Apr 16, 2016
+ * @author Bruno Ferreira, (c) 2012-2020
+ */
+
+#pragma once
+
+#include "engine_configuration.h"
+
+/**
+ * set engine_type 41
+ */
+void setMiataNA6_MAP_Frankenso();
+
+/**
+ * set engine_type 20
+ */
+void miataNAcommonEngineSettings();
+
+/**
+ * set engine_type 34
+ */
+void setMazdaMiataNA6();
+
+void setMazdaMiataNA94();

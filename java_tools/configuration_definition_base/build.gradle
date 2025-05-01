@@ -1,0 +1,10 @@
+apply from: '../../java_tools/dependencies.gradle'
+
+defaultTasks 'shadowJar'
+
+dependencies {
+    api project(':inifile')
+    api project(':enum_to_string')
+    api global_libs.snakeyaml
+    testFixturesApi global_libs.junit5
+}

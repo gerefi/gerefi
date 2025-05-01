@@ -1,0 +1,61 @@
+package com.gerefi.maintenance;
+
+import com.gerefi.maintenance.jobs.JobHelper;
+import com.opensr5.ConfigurationImage;
+import com.gerefi.io.UpdateOperationCallbacks;
+
+public enum CalibrationsUpdater {
+    INSTANCE;
+
+    public synchronized void updateCalibrations(
+        final String port,
+        final ConfigurationImage calibrationsImage,
+        final UpdateOperationCallbacks callbacks,
+        final Runnable onJobFinished
+    ) {
+        JobHelper.doJob(() -> {
+            if (updateCalibrations(port, calibrationsImage, callbacks, true)) {
+                callbacks.done();
+            } else {
+                callbacks.error();
+            }
+        }, onJobFinished);
+    }
+
+    public synchronized boolean updateCalibrations(
+        final String port,
+        final ConfigurationImage calibrationsImage,
+        final UpdateOperationCallbacks callbacks,
+        final boolean validateConfigVersionOnConnect
+    ) {
+        boolean result = false;
+        if (calibrationsImage != null) {
+            final int calibrationsImageSize = calibrationsImage.getSize();
+            callbacks.logLine(String.format(
+                "Updating configuration image (%d bytes) to port %s...",
+                calibrationsImageSize,
+                port
+            ));
+            result = BinaryProtocolExecutor.executeWithSuspendedPortScanner(port, callbacks, binaryProtocol -> {
+                binaryProtocol.uploadChanges(calibrationsImage);
+                return true;
+            }, false, validateConfigVersionOnConnect);
+            if (result) {
+                callbacks.logLine(String.format(
+                    "Configuration image (%d bytes) has been uploaded to port %s",
+                    calibrationsImageSize,
+                    port
+                ));
+            } else {
+                callbacks.logLine(String.format(
+                    "Failed to update configuration image (%d bytes) to port %s in a minute",
+                    calibrationsImageSize,
+                    port
+                ));
+            }
+        } else {
+            callbacks.logLine("ERROR: Calibrations to update are undefined");
+        }
+        return result;
+    }
+}

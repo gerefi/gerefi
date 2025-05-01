@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+}
+
+ apply from: '../../java_tools/dependencies.gradle'
+
+dependencies {
+    implementation global_libs.jsr305
+}

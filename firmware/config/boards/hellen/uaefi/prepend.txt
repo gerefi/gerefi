@@ -1,0 +1,30 @@
+#define MAIN_HELP_URL "https://gerefi.com/s/uaefi"
+
+
+
+
+#define ts_show_vbatt false
+#define ts_show_clt_iat_pullup false
+
+! users would need an option to un-select in order to use H-bridges for stepper idle
+#define ts_show_etb_pins true
+#define ts_show_analog_divider false
+#define ts_show_spi false
+! showing pins temporary for people to see if CAN2 is configured #define ts_show_can_pins false
+#define ts_show_tunerstudio_port true
+#define ts_show_can2 true
+#define ts_show_software_knock true
+
+#define ts_show_vr_threshold_all true
+#define ts_show_vr_threshold_pins false
+#define ts_show_vr_threshold_2 false
+#define ts_show_tps_sent true
+
+#define ts_show_tcu true
+#define ts_show_gdi true
+
+#define ts_show_analog_diag true
+
+#define FRONTEND_TITLE_BAR_NAME "uaEFI"
+
+#define TIMING_ADJUSTMENT_SIZE 4
