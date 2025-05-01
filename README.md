@@ -14,7 +14,7 @@ See [gcc_version_check.c](https://github.com/gerefi/gerefi/blob/master/firmware/
 
 Current binaries are always available on our [build server](http://gerefi.com/build_server/)
 
-[![paypal](https://img.shields.io/badge/%E2%99%A5%EF%B8%8Fdonate-orange)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6YSSN35GWYS3A)
+[![paypal](https://img.shields.io/badge/%E2%99%A5%EF%B8%8Fdonate-orange)](paypal.me/BrunoFerreira83)
 
 [shop.gerEFI.com](https://www.shop.gerefi.com/)
 
