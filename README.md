@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/wiki/gerefi/gerefi/Images/logo_new.png" alt="gerEFI" width="600" />
+<img src="android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="gerEFI" width="500" />
 
 <b>GPL open-source ECU</b>
 
