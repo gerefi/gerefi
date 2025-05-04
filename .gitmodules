@@ -52,6 +52,3 @@
 	path = .github/workflows/hw-ci/gethla
 	url = https://github.com/gerefi/gethla/
 	branch = prod
-[submodule "ChibiOS"]
-	path = ChibiOS
-	url = https://github.com/gerefi/ChibiOS.git
