@@ -1,0 +1,20 @@
+[submodule "firmware/ChibiOS"]
+	path = firmware/ChibiOS
+	url = https://github.com/ChibiOS/ChibiOS
+	branch = stable_21.11.x
+[submodule "firmware/cmsis-svd"]
+	path = firmware/cmsis-svd
+	url = https://github.com/posborne/cmsis-svd
+[submodule "kicad-libraries"]
+	path = kicad-libraries
+	url = https://github.com/rusefi/kicad-libraries
+[submodule "firmware/ext/openblt"]
+	path = firmware/ext/openblt
+	url = https://github.com/rusefi/openblt
+[submodule "firmware/libfirmware"]
+	path = firmware/libfirmware
+	url = https://github.com/rusefi/libfirmware.git
+	branch = master
+[submodule "test/googletest"]
+	path = test/googletest
+	url = https://github.com/google/googletest
