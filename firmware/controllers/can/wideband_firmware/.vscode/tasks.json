@@ -1,0 +1,72 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Firmware",
+            "type": "shell",
+            "command": "make -j8",
+            "options": {
+                "cwd": "${workspaceRoot}/firmware"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build Bootloader",
+            "type": "shell",
+            "command": "./build_bootloader.sh",
+            "options": {
+                "cwd": "${workspaceRoot}/firmware/bootloader"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build F0 Module Image",
+            "type": "shell",
+            "command": "./build_wideband.sh",
+            "options": {
+                "cwd": "${workspaceRoot}/firmware/boards/f0_module"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build F1 Dual",
+            "type": "shell",
+            "command": "make -j8 BOARD=f1_dual",
+            "options": {
+                "cwd": "${workspaceRoot}/firmware"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build F1 Single r3",
+            "type": "shell",
+            "command": "make -j8 BOARD=f1_rev3",
+            "options": {
+                "cwd": "${workspaceRoot}/firmware"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

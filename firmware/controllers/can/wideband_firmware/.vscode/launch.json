@@ -1,0 +1,64 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Unit Tests (gdb)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/test/build/wideband_test",
+            // uncomment args below to only debug a particular test
+            //"args": ["--gtest_filter=Heater.StatePreheat"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/test/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+		},
+        {
+            "name": "Debug F042 (firmware)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/firmware/",
+            "executable": "${workspaceRoot}/firmware/build/wideband.elf",
+            "device": "STM32F042K6",
+            "v1": false,
+            "svdFile": "${workspaceRoot}/firmware/cmsis-svd/data/STMicro/STM32F042x.svd",
+            "servertype": "openocd",
+            "configFiles": ["interface/stlink.cfg", "target/stm32f0x.cfg"],
+            "rtos": "auto"
+        },
+        {
+            "name": "Debug F042 (bootloader)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/firmware/boards/f0_module/bootloader/",
+            "executable": "${workspaceRoot}/firmware/boards/f0_module/bootloader/build/wideband_bootloader.elf",
+            "device": "STM32F042K6",
+            "v1": false,
+            "svdFile": "${workspaceRoot}/firmware/cmsis-svd/data/STMicro/STM32F042x.svd",
+            "servertype": "openocd",
+            "configFiles": ["interface/stlink.cfg", "target/stm32f0x.cfg"],
+            "rtos": "auto"
+        },
+        {
+            "name": "Debug F1",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/firmware/",
+            "executable": "${workspaceRoot}/firmware/build/wideband.elf",
+            "device": "STM32F103CB",
+            "v1": false,
+            "svdFile": "${workspaceRoot}/firmware/cmsis-svd/data/STMicro/STM32F103xx.svd",
+            "servertype": "openocd",
+            "configFiles": ["interface/stlink.cfg", "target/stm32f1x.cfg"],
+            "rtos": "auto"
+        }
+    ]
+}
