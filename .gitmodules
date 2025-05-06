@@ -50,5 +50,5 @@
 	url = https://github.com/gerefi/peak-can-basic
 [submodule ".github/workflows/hw-ci/gethla"]
 	path = .github/workflows/hw-ci/gethla
-	url = https://github.com/gerefi/gethla/
+	url = https://github.com/gerefi/gethla.git
 	branch = prod
