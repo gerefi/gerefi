@@ -1,0 +1,3 @@
+[submodule "wideband_firmware"]
+	path = wideband_firmware
+	url = https://github.com/mck1117/wideband
