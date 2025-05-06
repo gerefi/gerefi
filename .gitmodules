@@ -52,6 +52,3 @@
 	path = .github/workflows/hw-ci/gethla
 	url = https://github.com/gerefi/gethla.git
 	branch = prod
-[submodule "firmware/controllers/can/wideband_firmware/wideband"]
-	path = firmware/controllers/can/wideband_firmware/wideband
-	url = https://github.com/mck1117/wideband
