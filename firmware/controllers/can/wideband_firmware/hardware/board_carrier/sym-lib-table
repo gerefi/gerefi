@@ -1,3 +1,0 @@
-(sym_lib_table
-  (lib (name "wideband_module")(type "KiCad")(uri "${KIPRJMOD}/../board_module/wideband_module.kicad_sym")(options "")(descr ""))
-)

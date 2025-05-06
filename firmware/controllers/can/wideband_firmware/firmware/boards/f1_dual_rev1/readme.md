@@ -1,1 +1,0 @@
-Firmware for https://github.com/rusefi/rusefi-hardware/tree/main/lambda-x2/export/rev1
