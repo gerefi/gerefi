@@ -1,9 +1,9 @@
-rusEfi license
+gerEfi license
  version 0.91
  Nov 28, 2013
- http://rusefi.com/license.txt
+ http://gerefi.com/license.txt
 
-Copyright (c) 2012-2013 Andrey Belomutskiy
+Copyright (c) 2012-2013 Bruno Ferreira
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -15,10 +15,10 @@ furnished to do so, subject to the following conditions:
 1) The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
-2) Any work based on the Software should be published as Open Source, unless a 
+2) Any work based on the Software should be published as Open Source, unless a
 express written permission is granted.
 
-3) it is only allowed to execute the Software on Open Source hardware, unless a 
+3) it is only allowed to execute the Software on Open Source hardware, unless a
 express written permission is granted.
 
 
@@ -31,13 +31,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-rusEfi® controllers are experimental devices intended for educational purposes.
-rusEfi® controllers are not for sale or use on pollution controlled vehicles.
-Check the laws that apply in your locality to determine if using a rusEfi®
+gerEfiï¿½ controllers are experimental devices intended for educational purposes.
+gerEfiï¿½ controllers are not for sale or use on pollution controlled vehicles.
+Check the laws that apply in your locality to determine if using a gerEfiï¿½
 controller is legal for your application.
 
 Notes about Contributions Copyright Assignment:
-While contributing any material to rusEfi® you grant to me, Andrey Belomutskiy, 
-a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable 
-copyright license to reproduce, prepare derivative works of, publicly display, 
+While contributing any material to gerEfiï¿½ you grant to me, Bruno Ferreira,
+a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+copyright license to reproduce, prepare derivative works of, publicly display,
 publicly perform, sublicense, and distribute Your Contributions and such derivative works.
