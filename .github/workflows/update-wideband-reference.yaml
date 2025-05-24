@@ -1,6 +1,8 @@
 # todo: reduce copy-paste with update-libfirmware-reference.yaml
 
 name: Update wideband Reference
+permissions:
+  contents: write
 
 on:
   workflow_dispatch:
