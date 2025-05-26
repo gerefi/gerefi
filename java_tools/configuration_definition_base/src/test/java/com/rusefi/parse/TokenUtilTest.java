@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import com.gerefi.parse.TokenUtil;
+
 public class TokenUtilTest {
     @Test
     public void test() {
