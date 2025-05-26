@@ -2,6 +2,8 @@ package com.gerefi.ts_plugin;
 
 import org.junit.jupiter.api.Test;
 
+import com.gerefi.ts_plugin.ConnectPanel;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ConnectPanelTest {

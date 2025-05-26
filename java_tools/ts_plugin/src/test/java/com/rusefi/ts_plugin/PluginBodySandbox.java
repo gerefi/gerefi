@@ -8,6 +8,7 @@ import com.efiAnalytics.plugin.ecu.servers.OutputChannelServer;
 import com.opensr5.ini.IniFileModelImpl;
 import com.gerefi.TsTuneReader;
 import com.gerefi.core.ui.FrameHelper;
+import com.gerefi.ts_plugin.PluginEntry;
 import com.gerefi.ts_plugin.knock.KnockAnalyzerTab;
 
 import javax.swing.*;

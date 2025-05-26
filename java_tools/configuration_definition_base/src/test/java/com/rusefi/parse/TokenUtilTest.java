@@ -1,10 +1,9 @@
-package com.gerefi.parse;
+package com.gersefi.parse;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
 
-import com.gerefi.parse.TokenUtil;
+import com.rusefi.parse.TokenUtil;
 
 public class TokenUtilTest {
     @Test
