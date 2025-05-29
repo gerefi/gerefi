@@ -1,11 +1,11 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="TriggerImage individual" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.rusefi.trigger.TriggerImage" />
+    <option name="MAIN_CLASS_NAME" value="com.gerefi.trigger.TriggerImage" />
     <module name="java_tools.trigger-ui.main" />
     <option name="PROGRAM_PARAMETERS" value="../unit_tests 84 100" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="com.rusefi.trigger.*" />
+        <option name="PATTERN" value="com.gerefi.trigger.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

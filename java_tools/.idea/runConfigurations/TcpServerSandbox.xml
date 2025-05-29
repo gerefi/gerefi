@@ -1,10 +1,10 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="TcpServerSandbox" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="com.rusefi.binaryprotocol.test.TcpServerSandbox" />
+    <option name="MAIN_CLASS_NAME" value="com.gerefi.binaryprotocol.test.TcpServerSandbox" />
     <module name="java_tools.ecu_io.test" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="com.rusefi.binaryprotocol.test.*" />
+        <option name="PATTERN" value="com.gerefi.binaryprotocol.test.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

@@ -1,12 +1,12 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="LiveDataProcessor" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="com.rusefi.ldmp.LiveDataProcessor" />
+    <option name="MAIN_CLASS_NAME" value="com.gerefi.ldmp.LiveDataProcessor" />
     <module name="java_tools.config_definition.main" />
     <option name="PROGRAM_PARAMETERS" value="integration/LiveData.yaml" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../firmware" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="com.rusefi.ldmp.*" />
+        <option name="PATTERN" value="com.gerefi.ldmp.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>

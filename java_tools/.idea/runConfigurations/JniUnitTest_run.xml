@@ -12,7 +12,7 @@
         <list>
           <option value=":ecu_io:test" />
           <option value="--tests" />
-          <option value="&quot;com.rusefi.native_.JniUnitTest.run&quot;" />
+          <option value="&quot;com.gerefi.native_.JniUnitTest.run&quot;" />
         </list>
       </option>
       <option name="vmOptions" value="-Djava.library.path=../unit_tests/build" />

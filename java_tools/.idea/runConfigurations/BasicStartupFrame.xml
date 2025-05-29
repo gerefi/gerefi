@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="BasicStartupFrame" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.rusefi.ui.basic.BasicStartupFrame" />
+    <option name="MAIN_CLASS_NAME" value="com.gerefi.ui.basic.BasicStartupFrame" />
     <module name="java_tools.ui.main" />
     <extension name="coverage">
       <pattern>
