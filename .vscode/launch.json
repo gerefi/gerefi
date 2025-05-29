@@ -4,14 +4,18 @@
 	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
 	"configurations": [
-
+		{
+			"type": "java",
+			"name": "PluginLauncherSandbox",
+			"request": "launch",
+			"mainClass": "com.gerefi.ts_plugin.PluginLauncherSandbox",
+			"projectName": "ts_plugin_launcher"
+		},
 		{
 			"name": "Debug Unit Tests (gdb)",
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/unit_tests/build/gerefi_test",
-			// uncomment args below to only debug a particular test
-			//"args": ["--gtest_filter=etb.testTargetTpsIsFloatBug945"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}/unit_tests/",
 			"environment": [],
@@ -64,7 +68,10 @@
 			"v1": false,
 			"svdFile": "${workspaceRoot}/firmware/ext/cmsis-svd/STM32F405.svd",
 			"servertype": "openocd",
-			"configFiles": ["interface/stlink.cfg", "target/stm32f4x.cfg"],
+			"configFiles": [
+				"interface/stlink.cfg",
+				"target/stm32f4x.cfg"
+			],
 			"rtos": "auto",
 			"runToMain": true,
 			"preLaunchTask": "Build Firmware (microGerEfi F4)"
@@ -79,7 +86,10 @@
 			"v1": false,
 			"svdFile": "${workspaceRoot}/firmware/ext/cmsis-svd/STM32F427.svd",
 			"servertype": "openocd",
-			"configFiles": ["interface/stlink.cfg", "target/stm32f4x.cfg"],
+			"configFiles": [
+				"interface/stlink.cfg",
+				"target/stm32f4x.cfg"
+			],
 			"rtos": "auto",
 			"runToMain": true,
 			"preLaunchTask": "Build Firmware (Nucleo F429)"
@@ -94,7 +104,10 @@
 			"v1": false,
 			"svdFile": "${workspaceRoot}/firmware/ext/cmsis-svd/STM32F7x7.svd",
 			"servertype": "openocd",
-			"configFiles": ["interface/stlink.cfg", "target/stm32f7x.cfg"],
+			"configFiles": [
+				"interface/stlink.cfg",
+				"target/stm32f7x.cfg"
+			],
 			"rtos": "auto",
 			"runToMain": true,
 			"preLaunchTask": "Build Firmware (microGerEfi F7)"
@@ -109,7 +122,10 @@
 			"v1": false,
 			"svdFile": "${workspaceRoot}/firmware/ext/cmsis-svd/STM32H743x.svd",
 			"servertype": "openocd",
-			"configFiles": ["interface/stlink.cfg", "target/stm32h7x.cfg"],
+			"configFiles": [
+				"interface/stlink.cfg",
+				"target/stm32h7x.cfg"
+			],
 			"rtos": "auto",
 			"runToMain": true,
 			"preLaunchTask": "Build Firmware (Atlas H7)"
