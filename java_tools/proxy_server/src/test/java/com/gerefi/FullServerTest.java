@@ -89,7 +89,7 @@ public class FullServerTest {
             BackendTestHelper.runControllerConnectorBlocking(backend, serverPortForControllers);
             BackendTestHelper.runApplicationConnectorBlocking(backend, localApplicationProxyContext.serverPortForRemoteApplications());
 
-            log.info("create virtual controller to which \"gerEFI network connector\" connects to");
+            log.info("create virtual controller to which \"rusEFI network connector\" connects to");
             int controllerPort = 7002;
             ConfigurationImage controllerImage = prepareImage(value);
             log.info("Connecting " + controllerPort);
