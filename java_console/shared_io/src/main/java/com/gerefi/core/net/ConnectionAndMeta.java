@@ -176,12 +176,28 @@ public class ConnectionAndMeta {
     }
 
     public ConnectionAndMeta invoke(String baseUrl) throws IOException {
-        // user can have java with expired certificates or funny proxy, we shall accept any certificate :(
         SSLContext ctx = null;
         try {
             ctx = SSLContext.getInstance("TLS");
-            ctx.init(new KeyManager[0], new TrustManager[]{new AcceptAnyCertificateTrustManager()}, new SecureRandom());
-        } catch (NoSuchAlgorithmException | KeyManagementException e) {
+            
+            // Load trusted certificates into a KeyStore
+            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            keyStore.load(null, null); // Initialize an empty KeyStore
+            
+            // Example: Load a trusted certificate from a file
+            File certificateFile = new File("path/to/trusted-certificate");
+            try (InputStream certStream = new FileInputStream(certificateFile)) {
+                X509Certificate trustedCert = (X509Certificate) CertificateFactory.getInstance("X509")
+                        .generateCertificate(certStream);
+                keyStore.setCertificateEntry("trustedCert", trustedCert);
+            }
+            
+            // Initialize TrustManagerFactory with the KeyStore
+            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf.init(keyStore);
+            
+            ctx.init(null, tmf.getTrustManagers(), new SecureRandom());
+        } catch (Exception e) {
             throw new IOException("TLS exception", e);
         }
 
@@ -198,18 +214,5 @@ public class ConnectionAndMeta {
         void onPercentage(int currentPercentage);
     }
 
-    private static class AcceptAnyCertificateTrustManager implements X509TrustManager {
-        @Override
-        public void checkClientTrusted(X509Certificate[] arg0, String arg1) {
-        }
-
-        @Override
-        public void checkServerTrusted(X509Certificate[] arg0, String arg1) {
-        }
-
-        @Override
-        public X509Certificate[] getAcceptedIssuers() {
-            return null;
-        }
-    }
+// Removed insecure TrustManager implementation
 }
