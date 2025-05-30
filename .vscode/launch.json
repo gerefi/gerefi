@@ -6,6 +6,13 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "GccMapReader",
+			"request": "launch",
+			"mainClass": "gerefi.GccMapReader",
+			"projectName": "gcc_map_reader"
+		},
+		{
+			"type": "java",
 			"name": "PluginLauncherSandbox",
 			"request": "launch",
 			"mainClass": "com.gerefi.ts_plugin.PluginLauncherSandbox",

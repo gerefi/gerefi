@@ -12,8 +12,8 @@ import java.util.regex.Pattern;
 /**
  * This is an utility to print the information from GCC linked .map file
  *
- * @author Andrey Belomutskiy
- * 10/16/13
+ * @author Bruno Ferreira
+ * 01/01/25
  */
 public class GccMapReader {
     private static final Pattern MULTI_LINE_PATTERN = Pattern.compile(".*0x(\\S*)(.*)");
