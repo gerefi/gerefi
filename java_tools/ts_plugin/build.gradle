@@ -16,7 +16,7 @@ jar {
         attributes(
                 'Built-Date': new Date().format('yyyy-MM-dd HH:mm:ss'),
                 'Build-Jdk'      : "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
-                'Signature-Vendor': 'gerEFI LLC',
+                'Signature-Vendor': 'gerEFI',
         )
     }
 }
