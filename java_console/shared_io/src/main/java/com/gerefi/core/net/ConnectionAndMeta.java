@@ -45,7 +45,7 @@ public class ConnectionAndMeta {
         return getStringProperty(properties, "white_label", DEFAULT_WHITE_LABEL);
     }
 
-    public static String getGerEfiConsoleJarName() {
+    public static String getRusEfiConsoleJarName() {
         String defaultValue = JarFileUtil.getJarFileNamePrefix() + "_console.jar";
         // why would we need this configurable? if we need it for development under IDE it should probably be done differently?
         //return getStringProperty(getProperties(), "console_jar", defaultValue);
@@ -176,28 +176,12 @@ public class ConnectionAndMeta {
     }
 
     public ConnectionAndMeta invoke(String baseUrl) throws IOException {
+        // user can have java with expired certificates or funny proxy, we shall accept any certificate :(
         SSLContext ctx = null;
         try {
             ctx = SSLContext.getInstance("TLS");
-            
-            // Load trusted certificates into a KeyStore
-            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-            keyStore.load(null, null); // Initialize an empty KeyStore
-            
-            // Example: Load a trusted certificate from a file
-            File certificateFile = new File("path/to/trusted-certificate");
-            try (InputStream certStream = new FileInputStream(certificateFile)) {
-                X509Certificate trustedCert = (X509Certificate) CertificateFactory.getInstance("X509")
-                        .generateCertificate(certStream);
-                keyStore.setCertificateEntry("trustedCert", trustedCert);
-            }
-            
-            // Initialize TrustManagerFactory with the KeyStore
-            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            tmf.init(keyStore);
-            
-            ctx.init(null, tmf.getTrustManagers(), new SecureRandom());
-        } catch (Exception e) {
+            ctx.init(new KeyManager[0], new TrustManager[]{new AcceptAnyCertificateTrustManager()}, new SecureRandom());
+        } catch (NoSuchAlgorithmException | KeyManagementException e) {
             throw new IOException("TLS exception", e);
         }
 
@@ -214,5 +198,18 @@ public class ConnectionAndMeta {
         void onPercentage(int currentPercentage);
     }
 
-// Removed insecure TrustManager implementation
+    private static class AcceptAnyCertificateTrustManager implements X509TrustManager {
+        @Override
+        public void checkClientTrusted(X509Certificate[] arg0, String arg1) {
+        }
+
+        @Override
+        public void checkServerTrusted(X509Certificate[] arg0, String arg1) {
+        }
+
+        @Override
+        public X509Certificate[] getAcceptedIssuers() {
+            return null;
+        }
+    }
 }
