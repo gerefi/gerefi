@@ -6,6 +6,13 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "EnduranceTestUtility",
+			"request": "launch",
+			"mainClass": "com.gerefi.EnduranceTestUtility",
+			"projectName": "autotest"
+		},
+		{
+			"type": "java",
 			"name": "GccMapReader",
 			"request": "launch",
 			"mainClass": "gerefi.GccMapReader",
