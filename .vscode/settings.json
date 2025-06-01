@@ -39,4 +39,5 @@
 		"lowercase-global"
 	],
 	"java.configuration.updateBuildConfiguration": "interactive",
+	"cmake.sourceDirectory": "C:/Users/User/Documents/GitHub/gerefi/gerefi/unit_tests/googletest",
 }
