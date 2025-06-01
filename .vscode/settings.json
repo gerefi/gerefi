@@ -38,4 +38,5 @@
 	"Lua.diagnostics.disable": [
 		"lowercase-global"
 	],
+	"java.configuration.updateBuildConfiguration": "interactive",
 }
