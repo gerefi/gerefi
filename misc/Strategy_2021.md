@@ -17,4 +17,4 @@ https://github.com/gerefi/gerefi/wiki#features
      e. Continue to improve documentation for development process, firmware, tuning and use<br>
 4)  As of February 2021, 65 cars are listed as running on  https://github.com/gerefi/gerefi/wiki/List-of-engines-running-gerEFI
 5)  As of February 2021, hundreds of gerEFI units have been sold in addition to any ECUs produced from our designs independently.   There is no true count of how many gerEFI derived devices are in the wild anymore.
-6) As of February 2021  is is NOT the goal of gerEFI to market to a wide retail audience. The lack of documentation and the steep learning curve would cause a less than ideal user experience.  Developers continue to be the intended audience for the immediate future.
+6) As of February 2021 is NOT the goal of gerEFI to market to a wide retail audience. The lack of documentation and the steep learning curve would cause a less than ideal user experience.  Developers continue to be the intended audience for the immediate future.
