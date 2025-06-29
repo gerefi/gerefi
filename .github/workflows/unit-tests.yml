@@ -46,7 +46,7 @@ jobs:
         platformio remote test --force-remote --environment megaatmega2560
 
     - name: Discord Notification (Unit Tests Failed)
-      uses: rjstone/discord-webhook-notify@v1
+      uses: rjstone/discord-webhook-notify@v2
       if: failure()
       with:
           severity: error

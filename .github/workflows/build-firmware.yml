@@ -60,7 +60,7 @@ jobs:
         curl -vk --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./reference/speeduino.ini"                "https://webdisk.speeduino.com:2078/master.ini"
 
     - name: Discord Notification (Build Failed)
-      uses: rjstone/discord-webhook-notify@v1
+      uses: rjstone/discord-webhook-notify@v2
       if: failure() && github.event_name != 'pull_request' && github.repository_owner == 'speeduino'
       with:
           severity: error
