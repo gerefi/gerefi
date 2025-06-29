@@ -1429,7 +1429,7 @@ void triggerSetEndTeeth_GM7X(void)
 /** @} */
 
 /** Mitsubishi 4G63 / NA/NB Miata + MX-5 / 4/2.
-Note: raw.githubusercontent.com/noisymime/gerefi/master/reference/wiki/decoders/4g63_trace.png
+Note: raw.githubusercontent.com/gerefi/gerefi/master/reference/wiki/decoders/4g63_trace.png
 Tooth #1 is defined as the next crank tooth after the crank signal is HIGH when the cam signal is falling.
 Tooth number one is at 355* ATDC.
 * @defgroup dec_mitsu_miata Mistsubishi 4G63 and Miata + MX-5
@@ -4061,7 +4061,7 @@ void triggerSetEndTeeth_ThirtySixMinus21(void)
 /** DSM 420a, For the DSM Eclipse with 16 teeth total on the crank.
 * Tracks the falling side of the signal.
 * Sync is determined by watching for a falling edge on the secondary signal and checking if the primary signal is high then.
-* https://github.com/noisymime/gerefi/issues/133
+* https://github.com/gerefi/gerefi/issues/133
 * @defgroup dec_dsm_420a DSM 420a, For the DSM Eclipse
 * @{
 */

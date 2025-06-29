@@ -718,7 +718,7 @@ static void test_correctionSoftFlatShift(void) {
     RUN_TEST_P(test_correctionSoftFlatShift_off_rpmnotinwindow);
 }
 
-#if 0 // Wait until Noisymime is done with knock implementation
+#if 0 // Wait until gerefi is done with knock implementation
 extern int8_t correctionKnock(int8_t advance);
 
 static void setup_correctionKnock(void) {

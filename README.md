@@ -2,13 +2,13 @@
 
 <img src="https://raw.githubusercontent.com/wiki/gerefi/gerefi/Images/logo_new.png" alt="gerefi" width="600" />
 
-[![Release](https://img.shields.io/github/release/noisymime/gerefi.svg)](https://github.com/noisymime/gerefi/releases/latest)
-[![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/noisymime/gerefi/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/noisymime/gerefi/build-firmware.yml?label=Build%20Status&branch=master)](https://github.com/noisymime/gerefi/actions/workflows/build-firmware.yml)
-[![Unit Tests](https://img.shields.io/github/actions/workflow/status/noisymime/gerefi/unit-tests.yml?label=Unit%20Tests&branch=master)](https://github.com/noisymime/gerefi/actions/workflows/unit-tests.yml)
-![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/noisymime/d8a449a3f6d3307dab457431512502f9/raw/misra_results.json)
-[![Sponsors](https://img.shields.io/github/sponsors/noisymime)](https://github.com/sponsors/noisymime)
-[![GitHub commits](https://img.shields.io/github/commits-since/noisymime/gerefi/202310.svg)](https://github.com/noisymime/gerefi/compare/202310...master)
+[![Release](https://img.shields.io/github/release/gerefi/gerefi.svg)](https://github.com/gerefi/gerefi/releases/latest)
+[![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/gerefi/gerefi/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/gerefi/gerefi/build-firmware.yml?label=Build%20Status&branch=master)](https://github.com/gerefi/gerefi/actions/workflows/build-firmware.yml)
+[![Unit Tests](https://img.shields.io/github/actions/workflow/status/gerefi/gerefi/unit-tests.yml?label=Unit%20Tests&branch=master)](https://github.com/gerefi/gerefi/actions/workflows/unit-tests.yml)
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/gerefi/d8a449a3f6d3307dab457431512502f9/raw/misra_results.json)
+[![Sponsors](https://img.shields.io/github/sponsors/gerefi)](https://github.com/sponsors/gerefi)
+[![GitHub commits](https://img.shields.io/github/commits-since/gerefi/gerefi/202310.svg)](https://github.com/gerefi/gerefi/compare/202310...master)
 [![https://img.shields.io/discord/879495735912071269 ](https://img.shields.io/discord/879495735912071269?label=Discord&logo=Discord)](https://discord.gg/YWCEexaNDe)
 
 ##### A low cost, DIY friendly Engine Management System (ECU) based on the Arduino framework
