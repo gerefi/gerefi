@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v4
         
     - name: Build Doxygen documentation
-      uses: mattnotmitt/doxygen-action@v1.9
+      uses: mattnotmitt/doxygen-action@v1.12
       with:
         doxyfile-path: "./Doxyfile" # default is ./Doxyfile
         working-directory: "." # default is .
