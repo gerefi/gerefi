@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/gerefi/wiki.js/raw/master/img/gerefi%20logo_med.png" alt="gerefi" width="600" />
+<img src="https://raw.githubusercontent.com/wiki/gerefi/gerefi/Images/logo_new.png" alt="gerefi" width="600" />
 
 [![Release](https://img.shields.io/github/release/noisymime/gerefi.svg)](https://github.com/noisymime/gerefi/releases/latest)
 [![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/noisymime/gerefi/blob/master/LICENSE)
