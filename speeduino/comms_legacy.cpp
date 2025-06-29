@@ -1,5 +1,5 @@
 /*
-Speeduino - Simple engine management for the Arduino Mega 2560 platform
+gerefi - Simple engine management for the Arduino Mega 2560 platform
 Copyright (C) Josh Stewart
 A full copy of the license may be found in the projects root directory
 */
@@ -26,7 +26,7 @@ A full copy of the license may be found in the projects root directory
 #include "units.h"
 #include "sensors.h"
 
-static byte currentPage = 1;//Not the same as the speeduino config page numbers
+static byte currentPage = 1;//Not the same as the gerefi config page numbers
 bool firstCommsRequest = true; /**< The number of times the A command has been issued. This is used to track whether a reset has recently been performed on the controller */
 static byte currentCommand; /**< The serial command that is currently being processed. This is only useful when cmdPending=True */
 static bool chunkPending = false; /**< Whether or not the current chunk write is complete or not */
@@ -645,7 +645,7 @@ void legacySerialHandler(byte cmd, Stream &targetPort, SerialStatus &targetStatu
       break;
 
     case 'Q': // send code version
-      targetPort.print(F("speeduino 202504-dev"));
+      targetPort.print(F("gerefi 202504-dev"));
       break;
 
     case 'r': //New format for the optimised OutputChannels
@@ -677,7 +677,7 @@ void legacySerialHandler(byte cmd, Stream &targetPort, SerialStatus &targetStatu
       break;
 
     case 'S': // send code version
-      targetPort.print(F("Speeduino 2025.04-dev"));
+      targetPort.print(F("gerefi 2025.04-dev"));
       break;
   }
 }
@@ -951,7 +951,7 @@ namespace {
  * Creates a page iterator by @ref page_begin() (See: pages.cpp). Sends page given in @ref currentPage.
  * 
  * Note that some translation of the data is required to lay it out in the way Megasquirt / TunerStudio expect it.
- * Data is sent in binary format, as defined by in each page in the speeduino.ini.
+ * Data is sent in binary format, as defined by in each page in the gerefi.ini.
  */
 void sendPage(void)
 {

@@ -1,5 +1,5 @@
 /*
-Speeduino - Simple engine management for the Arduino Mega 2560 platform
+gerefi - Simple engine management for the Arduino Mega 2560 platform
 Copyright (C) Josh Stewart
 A full copy of the license may be found in the projects root directory
 can_comms was originally contributed by Darren Siepka
@@ -138,7 +138,7 @@ void secondserial_Command(void)
       break;
 
     case 's': // send the "a" stream code version
-      secondarySerial.print(F("Speeduino csx02019.8"));
+      secondarySerial.print(F("gerefi csx02019.8"));
       break;
 
     case 'S': // send code version
@@ -164,7 +164,7 @@ void sendCancommand(uint8_t cmdtype, uint16_t canaddress, uint8_t candata1, uint
     {
       case 0:
         secondarySerial.print("G");
-        secondarySerial.write(canaddress);  //tscanid of speeduino device
+        secondarySerial.write(canaddress);  //tscanid of gerefi device
         secondarySerial.write(candata1);    // table id
         secondarySerial.write(candata2);    //table memory offset
         break;
@@ -183,7 +183,7 @@ void sendCancommand(uint8_t cmdtype, uint16_t canaddress, uint8_t candata1, uint
 
      case 3:
         //send to truecan send routine
-        //canaddress == speeduino canid, candata1 == canin channel dest, paramgroup == can address  to request from
+        //canaddress == gerefi canid, candata1 == canin channel dest, paramgroup == can address  to request from
         //This section is to be moved to the correct can output routine later
         #if defined(NATIVE_CAN_AVAILABLE)
         outMsg.id = (canaddress);

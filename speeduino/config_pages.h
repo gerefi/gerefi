@@ -563,7 +563,7 @@ struct config6 {
   byte boostFreq;   /// Frequency of the boost PWM valve
   byte vvtFreq;     /// Frequency of the vvt PWM valve
   byte idleFreq;
-  // Launch stuff, see beginning of speeduino.ino main loop
+  // Launch stuff, see beginning of gerefi.ino main loop
   byte launchPin : 6; ///< Launch (control ?) pin
   byte launchEnabled : 1; ///< Launch ...???... (control?) enabled
   byte launchHiLo : 1;  // 
@@ -653,10 +653,10 @@ struct config9 {
   byte unused10_111;
   byte egoMAPMax; //needs to be multiplied by 2 to get the proper value
   byte egoMAPMin; //needs to be multiplied by 2 to get the proper value
-  byte speeduino_tsCanId:4;         //speeduino TS canid (0-14)
-  uint16_t true_address;            //speeduino 11bit can address
-  uint16_t realtime_base_address;   //speeduino 11 bit realtime base address
-  uint16_t obd_address;             //speeduino OBD diagnostic address
+  byte gerefi_tsCanId:4;         //gerefi TS canid (0-14)
+  uint16_t true_address;            //gerefi 11bit can address
+  uint16_t realtime_base_address;   //gerefi 11 bit realtime base address
+  uint16_t obd_address;             //gerefi OBD diagnostic address
   uint8_t Auxinpina[16];            //analog  pin number when internal aux in use
   uint8_t Auxinpinb[16];            // digital pin number when internal aux in use
 

@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'reference/speeduino.ini'
+      - 'reference/gerefi.ini'
 
 jobs:
   validate:
@@ -17,11 +17,11 @@ jobs:
         uses: hyper-tuner/ini-validate-action@v1
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-          filename: reference/speeduino.ini
+          filename: reference/gerefi.ini
 
   upload:
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'speeduino'
+    if: github.repository_owner == 'gerefi'
     needs: validate
 
     steps:
@@ -33,5 +33,5 @@ jobs:
           api-url: "${{ secrets.HYPER_TUNER_INI_UPLOAD_URL }}"
           username: "${{ secrets.HYPER_TUNER_INI_UPLOAD_USERNAME }}"
           password: "${{ secrets.HYPER_TUNER_INI_UPLOAD_PASSWORD }}"
-          path: reference/speeduino.ini
-          ecosystem: speeduino
+          path: reference/gerefi.ini
+          ecosystem: gerefi

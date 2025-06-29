@@ -25,20 +25,20 @@ jobs:
         working-directory: "." # default is .
 
     - name: Setup git config
-      if: github.repository_owner == 'speeduino'
+      if: github.repository_owner == 'gerefi'
       run: |
         git config --global user.name "GitHub Actions Bot"
         git config --global user.email "<>"
 
     - name: Commit updated Doxygen documentation
-      if: github.event_name != 'pull_request' && github.repository_owner == 'speeduino'
+      if: github.event_name != 'pull_request' && github.repository_owner == 'gerefi'
       env:
         GH_DOXYGEN: ${{ secrets.GH_DOXYGEN }}
       run: |
         cd ..
-        git clone https://github.com/speeduino/speeduino-doxygen
-        cp -r speeduino/reference/doxygen/html/* speeduino-doxygen
-        cd speeduino-doxygen
+        git clone https://github.com/gerefi/gerefi-doxygen
+        cp -r gerefi/reference/doxygen/html/* gerefi-doxygen
+        cd gerefi-doxygen
         git add --all
         git commit --allow-empty -m "Deploy code docs to GitHub repo. Commit ${GITHUB_SHA}"
-        git push --force "https://${GH_DOXYGEN}@github.com/speeduino/speeduino-doxygen" > /dev/null 2>&1
+        git push --force "https://${GH_DOXYGEN}@github.com/gerefi/gerefi-doxygen" > /dev/null 2>&1

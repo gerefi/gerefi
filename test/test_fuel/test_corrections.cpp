@@ -5,7 +5,7 @@
 #include "test_corrections.h"
 #include "init.h"
 #include "sensors.h"
-#include "speeduino.h"
+#include "gerefi.h"
 #include "sensors_map_structs.h"
 #include "units.h"
 

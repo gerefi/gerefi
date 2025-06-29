@@ -1,5 +1,5 @@
 /*
-Speeduino - Simple engine management for the Arduino Mega 2560 platform
+gerefi - Simple engine management for the Arduino Mega 2560 platform
 Copyright (C) Josh Stewart
 A full copy of the license may be found in the projects root directory
 */
@@ -25,7 +25,7 @@ There are 2 top level functions that call more detailed corrections for Fuel and
 
 #include "globals.h"
 #include "corrections.h"
-#include "speeduino.h"
+#include "gerefi.h"
 #include "timers.h"
 #include "maths.h"
 #include "sensors.h"

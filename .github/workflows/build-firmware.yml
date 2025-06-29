@@ -46,22 +46,22 @@ jobs:
     - name: Build test STM32
       run: platformio run -e black_F407VE -e BlackPill_F401CC -e BlackPill_F411CE_USB
 
-    - name: Upload to Speeduino server
-      if: github.event_name != 'pull_request' && github.repository_owner == 'speeduino' && github.ref_name == 'master'
+    - name: Upload to gerefi server
+      if: github.event_name != 'pull_request' && github.repository_owner == 'gerefi' && github.ref_name == 'master'
       env:
         WEB_PWD: ${{ secrets.WEB_PWD }}
       run: |
-        curl -v https://webdisk.speeduino.com:2078 || true
-        curl -vk --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./.pio/build/megaatmega2560/firmware.hex" "https://webdisk.speeduino.com:2078/bin/master.hex"
-        curl -vk --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./.pio/build/teensy35/firmware.hex"       "https://webdisk.speeduino.com:2078/teensy35/master-teensy35.hex"
-        curl -vk --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./.pio/build/teensy36/firmware.hex"       "https://webdisk.speeduino.com:2078/teensy36/master-teensy36.hex"
-        curl -vk --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./.pio/build/teensy41/firmware.hex"       "https://webdisk.speeduino.com:2078/teensy41/master-teensy41.hex"
-        curl -vk --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./.pio/build/black_F407VE/firmware.bin"   "https://webdisk.speeduino.com:2078/stm32f407/master-stm32f407.bin"
-        curl -vk --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./reference/speeduino.ini"                "https://webdisk.speeduino.com:2078/master.ini"
+        curl -v https://webdisk.gerefi.com:2078 || true
+        curl -vk --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./.pio/build/megaatmega2560/firmware.hex" "https://webdisk.gerefi.com:2078/bin/master.hex"
+        curl -vk --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./.pio/build/teensy35/firmware.hex"       "https://webdisk.gerefi.com:2078/teensy35/master-teensy35.hex"
+        curl -vk --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./.pio/build/teensy36/firmware.hex"       "https://webdisk.gerefi.com:2078/teensy36/master-teensy36.hex"
+        curl -vk --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./.pio/build/teensy41/firmware.hex"       "https://webdisk.gerefi.com:2078/teensy41/master-teensy41.hex"
+        curl -vk --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./.pio/build/black_F407VE/firmware.bin"   "https://webdisk.gerefi.com:2078/stm32f407/master-stm32f407.bin"
+        curl -vk --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./reference/gerefi.ini"                "https://webdisk.gerefi.com:2078/master.ini"
 
     - name: Discord Notification (Build Failed)
       uses: rjstone/discord-webhook-notify@v1
-      if: failure() && github.event_name != 'pull_request' && github.repository_owner == 'speeduino'
+      if: failure() && github.event_name != 'pull_request' && github.repository_owner == 'gerefi'
       with:
           severity: error
           avatarUrl: https://avatars.githubusercontent.com/u/9919?v=4&size=48

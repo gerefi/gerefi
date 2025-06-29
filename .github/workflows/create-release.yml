@@ -38,23 +38,23 @@ jobs:
     - name: Build Firmware
       run: platformio run -e megaatmega2560 -e teensy35 -e teensy36 -e teensy41 -e black_F407VE
 
-    - name: Upload to Speeduino server
+    - name: Upload to gerefi server
       if: startsWith(github.ref, 'refs/tags/')
       env:
         WEB_PWD: ${{ secrets.WEB_PWD }}
         TAG_NAME: ${{ github.ref_name }}
       run: |
-        curl https://webdisk.speeduino.com:2078 || true
-        curl -k --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./.pio/build/megaatmega2560/firmware.hex" "https://webdisk.speeduino.com:2078/bin/$TAG_NAME.hex"
-        curl -k --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./.pio/build/teensy35/firmware.hex"       "https://webdisk.speeduino.com:2078/teensy35/$TAG_NAME-teensy35.hex"
-        curl -k --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./.pio/build/teensy36/firmware.hex"       "https://webdisk.speeduino.com:2078/teensy36/$TAG_NAME-teensy36.hex"
-        curl -k --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./.pio/build/teensy41/firmware.hex"       "https://webdisk.speeduino.com:2078/teensy41/$TAG_NAME-teensy41.hex"
-        curl -k --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./.pio/build/black_F407VE/firmware.bin"   "https://webdisk.speeduino.com:2078/stm32f407/$TAG_NAME-stm32f407.bin"
-        curl -k --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./reference/speeduino.ini"                "https://webdisk.speeduino.com:2078/$TAG_NAME.ini"
+        curl https://webdisk.gerefi.com:2078 || true
+        curl -k --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./.pio/build/megaatmega2560/firmware.hex" "https://webdisk.gerefi.com:2078/bin/$TAG_NAME.hex"
+        curl -k --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./.pio/build/teensy35/firmware.hex"       "https://webdisk.gerefi.com:2078/teensy35/$TAG_NAME-teensy35.hex"
+        curl -k --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./.pio/build/teensy36/firmware.hex"       "https://webdisk.gerefi.com:2078/teensy36/$TAG_NAME-teensy36.hex"
+        curl -k --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./.pio/build/teensy41/firmware.hex"       "https://webdisk.gerefi.com:2078/teensy41/$TAG_NAME-teensy41.hex"
+        curl -k --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./.pio/build/black_F407VE/firmware.bin"   "https://webdisk.gerefi.com:2078/stm32f407/$TAG_NAME-stm32f407.bin"
+        curl -k --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./reference/gerefi.ini"                "https://webdisk.gerefi.com:2078/$TAG_NAME.ini"
 
-        wget https://speeduino.com/fw/versions
+        wget https://gerefi.com/fw/versions
         sed -i "1s/^/$TAG_NAME\n/" versions
-        curl -k --tlsv1.2 --ipv4 --user "speeduino_firmware@speeduino.com:$WEB_PWD" --basic -T "./versions"                               "https://webdisk.speeduino.com:2078/versions"
+        curl -k --tlsv1.2 --ipv4 --user "gerefi_firmware@gerefi.com:$WEB_PWD" --basic -T "./versions"                               "https://webdisk.gerefi.com:2078/versions"
         
     
     - name: Build Changelog
@@ -72,4 +72,4 @@ jobs:
       with:
         body: ${{steps.github_release.outputs.changelog}}
         files: |
-          ./reference/speeduino.ini
+          ./reference/gerefi.ini

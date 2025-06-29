@@ -1,11 +1,11 @@
 /** @file
- * Speeduino Initialisation (called at Arduino setup()).
+ * gerefi Initialisation (called at Arduino setup()).
  */
 #include "globals.h"
 #include "init.h"
 #include "storage.h"
 #include "updates.h"
-#include "speeduino.h"
+#include "gerefi.h"
 #include "timers.h"
 #include "comms.h"
 #include "comms_secondary.h"
@@ -36,7 +36,7 @@
 #pragma GCC optimize ("Os") 
 #endif
 
-/** Initialise Speeduino for the main loop.
+/** Initialise gerefi for the main loop.
  * Top level init entry point for all initialisations:
  * - Initialise and set sizes of 3D tables
  * - Load config from EEPROM, update config structures to current version of SW if needed.
@@ -1212,7 +1212,7 @@ void initialiseAll(void)
 }
 /** Set board / microcontroller specific pin mappings / assignments.
  * The boardID is switch-case compared against raw boardID integers (not enum or defined label, and probably no need for that either)
- * which are originated from tuning SW (e.g. TS) set values and are available in reference/speeduino.ini (See pinLayout, note also that
+ * which are originated from tuning SW (e.g. TS) set values and are available in reference/gerefi.ini (See pinLayout, note also that
  * numbering is not contiguous here).
  */
 void setPinMapping(byte boardID)
@@ -1225,7 +1225,7 @@ void setPinMapping(byte boardID)
 
   switch (boardID)
   {
-    //Note: Case 0 (Speeduino v0.1) was removed in Nov 2020 to handle default case for blank FRAM modules
+    //Note: Case 0 (gerefi v0.1) was removed in Nov 2020 to handle default case for blank FRAM modules
 
     case 1:
     #ifndef SMALL_FLASH_MODE //No support for bluepill here anyway
@@ -1427,21 +1427,21 @@ void setPinMapping(byte boardID)
         pinCoil3 = PA8;
         /* = PA9 */ //TXD1
         /* = PA10 */ //RXD1
-        /* = PA11 */ //(DO NOT USE FOR SPEEDUINO) USB
-        /* = PA12 */ //(DO NOT USE FOR SPEEDUINO) USB 
-        /* = PA13 */ //(DO NOT USE FOR SPEEDUINO) NOT ON GPIO - DEBUG ST-LINK
-        /* = PA14 */ //(DO NOT USE FOR SPEEDUINO) NOT ON GPIO - DEBUG ST-LINK
-        /* = PA15 */ //(DO NOT USE FOR SPEEDUINO) NOT ON GPIO - DEBUG ST-LINK
+        /* = PA11 */ //(DO NOT USE FOR gerefi) USB
+        /* = PA12 */ //(DO NOT USE FOR gerefi) USB 
+        /* = PA13 */ //(DO NOT USE FOR gerefi) NOT ON GPIO - DEBUG ST-LINK
+        /* = PA14 */ //(DO NOT USE FOR gerefi) NOT ON GPIO - DEBUG ST-LINK
+        /* = PA15 */ //(DO NOT USE FOR gerefi) NOT ON GPIO - DEBUG ST-LINK
 
         //******************************************
         //******** PORTB CONNECTIONS *************** 
         //******************************************
-        /* = PB0; */ //(DO NOT USE FOR SPEEDUINO) ADC123 - SPI FLASH CHIP CS pin
+        /* = PB0; */ //(DO NOT USE FOR gerefi) ADC123 - SPI FLASH CHIP CS pin
         pinBaro = PB1; //ADC12
-        /* = PB2; */ //(DO NOT USE FOR SPEEDUINO) BOOT1 
-        /* = PB3; */ //(DO NOT USE FOR SPEEDUINO) SPI1_SCK FLASH CHIP
-        /* = PB4; */ //(DO NOT USE FOR SPEEDUINO) SPI1_MISO FLASH CHIP
-        /* = PB5; */ //(DO NOT USE FOR SPEEDUINO) SPI1_MOSI FLASH CHIP
+        /* = PB2; */ //(DO NOT USE FOR gerefi) BOOT1 
+        /* = PB3; */ //(DO NOT USE FOR gerefi) SPI1_SCK FLASH CHIP
+        /* = PB4; */ //(DO NOT USE FOR gerefi) SPI1_MISO FLASH CHIP
+        /* = PB5; */ //(DO NOT USE FOR gerefi) SPI1_MOSI FLASH CHIP
         /* = PB6; */ //NRF_CE
         /* = PB7; */ //NRF_CS
         /* = PB8; */ //NRF_IRQ
@@ -1466,21 +1466,21 @@ void setPinMapping(byte boardID)
         pinBat = PC5; //ADC12
         pinVVT_1 = PC6; //
         pinDisplayReset = PC7; //
-        /* = PC8; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_D0
-        /* = PC9; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_D1
-        /* = PC10; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_D2
-        /* = PC11; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_D3
-        /* = PC12; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_SCK
+        /* = PC8; */ //(DO NOT USE FOR gerefi) - SDIO_D0
+        /* = PC9; */ //(DO NOT USE FOR gerefi) - SDIO_D1
+        /* = PC10; */ //(DO NOT USE FOR gerefi) - SDIO_D2
+        /* = PC11; */ //(DO NOT USE FOR gerefi) - SDIO_D3
+        /* = PC12; */ //(DO NOT USE FOR gerefi) - SDIO_SCK
         pinTachOut = PC13; //
-        /* = PC14; */ //(DO NOT USE FOR SPEEDUINO) - OSC32_IN
-        /* = PC15; */ //(DO NOT USE FOR SPEEDUINO) - OSC32_OUT
+        /* = PC14; */ //(DO NOT USE FOR gerefi) - OSC32_IN
+        /* = PC15; */ //(DO NOT USE FOR gerefi) - OSC32_OUT
 
         //******************************************
         //******** PORTD CONNECTIONS *************** 
         //******************************************
         /* = PD0; */ //CANRX
         /* = PD1; */ //CANTX
-        /* = PD2; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_CMD
+        /* = PD2; */ //(DO NOT USE FOR gerefi) - SDIO_CMD
         pinVVT_2 = PD3; //
         pinFlex = PD4;
         /* = PD5;*/ //TXD2
@@ -2401,21 +2401,21 @@ void setPinMapping(byte boardID)
         pinCoil3 = PA8;
         // = PA9;  //TXD1=Bluetooth module
         // = PA10; //RXD1=Bluetooth module
-        // = PA11; //(DO NOT USE FOR SPEEDUINO) USB
-        // = PA12; //(DO NOT USE FOR SPEEDUINO) USB 
-        // = PA13;  //(DO NOT USE FOR SPEEDUINO) NOT ON GPIO - DEBUG ST-LINK
-        // = PA14;  //(DO NOT USE FOR SPEEDUINO) NOT ON GPIO - DEBUG ST-LINK
-        // = PA15;  //(DO NOT USE FOR SPEEDUINO) NOT ON GPIO - DEBUG ST-LINK
+        // = PA11; //(DO NOT USE FOR gerefi) USB
+        // = PA12; //(DO NOT USE FOR gerefi) USB 
+        // = PA13;  //(DO NOT USE FOR gerefi) NOT ON GPIO - DEBUG ST-LINK
+        // = PA14;  //(DO NOT USE FOR gerefi) NOT ON GPIO - DEBUG ST-LINK
+        // = PA15;  //(DO NOT USE FOR gerefi) NOT ON GPIO - DEBUG ST-LINK
 
         //******************************************
         //******** PORTB CONNECTIONS *************** 
         //******************************************
-        // = PB0;  //(DO NOT USE FOR SPEEDUINO) ADC123 - SPI FLASH CHIP CS pin
+        // = PB0;  //(DO NOT USE FOR gerefi) ADC123 - SPI FLASH CHIP CS pin
         pinBaro = PB1; //ADC12
-        // = PB2;  //(DO NOT USE FOR SPEEDUINO) BOOT1 
-        // = PB3;  //(DO NOT USE FOR SPEEDUINO) SPI1_SCK FLASH CHIP
-        // = PB4;  //(DO NOT USE FOR SPEEDUINO) SPI1_MISO FLASH CHIP
-        // = PB5;  //(DO NOT USE FOR SPEEDUINO) SPI1_MOSI FLASH CHIP
+        // = PB2;  //(DO NOT USE FOR gerefi) BOOT1 
+        // = PB3;  //(DO NOT USE FOR gerefi) SPI1_SCK FLASH CHIP
+        // = PB4;  //(DO NOT USE FOR gerefi) SPI1_MISO FLASH CHIP
+        // = PB5;  //(DO NOT USE FOR gerefi) SPI1_MOSI FLASH CHIP
         // = PB6;  //NRF_CE
         pinCoil6 = PB7;  //NRF_CS
         // = PB8;  //NRF_IRQ
@@ -2439,21 +2439,21 @@ void setPinMapping(byte boardID)
         pinBat = PC5;  //ADC12
         pinBoost = PC6; //
         pinIdle1 = PC7; //
-        // = PC8;  //(DO NOT USE FOR SPEEDUINO) - SDIO_D0
-        // = PC9;  //(DO NOT USE FOR SPEEDUINO) - SDIO_D1
-        // = PC10;  //(DO NOT USE FOR SPEEDUINO) - SDIO_D2
-        // = PC11;  //(DO NOT USE FOR SPEEDUINO) - SDIO_D3
-        // = PC12;  //(DO NOT USE FOR SPEEDUINO) - SDIO_SCK
+        // = PC8;  //(DO NOT USE FOR gerefi) - SDIO_D0
+        // = PC9;  //(DO NOT USE FOR gerefi) - SDIO_D1
+        // = PC10;  //(DO NOT USE FOR gerefi) - SDIO_D2
+        // = PC11;  //(DO NOT USE FOR gerefi) - SDIO_D3
+        // = PC12;  //(DO NOT USE FOR gerefi) - SDIO_SCK
         pinTachOut = PC13; //
-        // = PC14;  //(DO NOT USE FOR SPEEDUINO) - OSC32_IN
-        // = PC15;  //(DO NOT USE FOR SPEEDUINO) - OSC32_OUT
+        // = PC14;  //(DO NOT USE FOR gerefi) - OSC32_IN
+        // = PC15;  //(DO NOT USE FOR gerefi) - OSC32_OUT
 
         //******************************************
         //******** PORTD CONNECTIONS *************** 
         //******************************************
         // = PD0;  //CANRX
         // = PD1;  //CANTX
-        // = PD2;  //(DO NOT USE FOR SPEEDUINO) - SDIO_CMD
+        // = PD2;  //(DO NOT USE FOR gerefi) - SDIO_CMD
         pinIdle2 = PD3; //
         // = PD4;  //
         pinFlex = PD4;
@@ -2580,21 +2580,21 @@ void setPinMapping(byte boardID)
         pinCoil3 = PA8;
         /* = PA9 */ //TXD1
         /* = PA10 */ //RXD1
-        /* = PA11 */ //(DO NOT USE FOR SPEEDUINO) USB
-        /* = PA12 */ //(DO NOT USE FOR SPEEDUINO) USB 
-        /* = PA13 */ //(DO NOT USE FOR SPEEDUINO) NOT ON GPIO - DEBUG ST-LINK
-        /* = PA14 */ //(DO NOT USE FOR SPEEDUINO) NOT ON GPIO - DEBUG ST-LINK
-        /* = PA15 */ //(DO NOT USE FOR SPEEDUINO) NOT ON GPIO - DEBUG ST-LINK
+        /* = PA11 */ //(DO NOT USE FOR gerefi) USB
+        /* = PA12 */ //(DO NOT USE FOR gerefi) USB 
+        /* = PA13 */ //(DO NOT USE FOR gerefi) NOT ON GPIO - DEBUG ST-LINK
+        /* = PA14 */ //(DO NOT USE FOR gerefi) NOT ON GPIO - DEBUG ST-LINK
+        /* = PA15 */ //(DO NOT USE FOR gerefi) NOT ON GPIO - DEBUG ST-LINK
 
         //******************************************
         //******** PORTB CONNECTIONS *************** 
         //******************************************
-        /* = PB0; */ //(DO NOT USE FOR SPEEDUINO) ADC123 - SPI FLASH CHIP CS pin
+        /* = PB0; */ //(DO NOT USE FOR gerefi) ADC123 - SPI FLASH CHIP CS pin
         pinBaro = PB1; //ADC12
-        /* = PB2; */ //(DO NOT USE FOR SPEEDUINO) BOOT1 
-        /* = PB3; */ //(DO NOT USE FOR SPEEDUINO) SPI1_SCK FLASH CHIP
-        /* = PB4; */ //(DO NOT USE FOR SPEEDUINO) SPI1_MISO FLASH CHIP
-        /* = PB5; */ //(DO NOT USE FOR SPEEDUINO) SPI1_MOSI FLASH CHIP
+        /* = PB2; */ //(DO NOT USE FOR gerefi) BOOT1 
+        /* = PB3; */ //(DO NOT USE FOR gerefi) SPI1_SCK FLASH CHIP
+        /* = PB4; */ //(DO NOT USE FOR gerefi) SPI1_MISO FLASH CHIP
+        /* = PB5; */ //(DO NOT USE FOR gerefi) SPI1_MOSI FLASH CHIP
         /* = PB6; */ //NRF_CE
         /* = PB7; */ //NRF_CS
         /* = PB8; */ //NRF_IRQ
@@ -2619,21 +2619,21 @@ void setPinMapping(byte boardID)
         pinBat = PC5; //ADC12
         /*pinVVT_1 = PC6; */ //
         pinDisplayReset = PC7; //
-        /* = PC8; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_D0
-        /* = PC9; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_D1
-        /* = PC10; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_D2
-        /* = PC11; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_D3
-        /* = PC12; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_SCK
+        /* = PC8; */ //(DO NOT USE FOR gerefi) - SDIO_D0
+        /* = PC9; */ //(DO NOT USE FOR gerefi) - SDIO_D1
+        /* = PC10; */ //(DO NOT USE FOR gerefi) - SDIO_D2
+        /* = PC11; */ //(DO NOT USE FOR gerefi) - SDIO_D3
+        /* = PC12; */ //(DO NOT USE FOR gerefi) - SDIO_SCK
         pinTachOut = PC13; //
-        /* = PC14; */ //(DO NOT USE FOR SPEEDUINO) - OSC32_IN
-        /* = PC15; */ //(DO NOT USE FOR SPEEDUINO) - OSC32_OUT
+        /* = PC14; */ //(DO NOT USE FOR gerefi) - OSC32_IN
+        /* = PC15; */ //(DO NOT USE FOR gerefi) - OSC32_OUT
 
         //******************************************
         //******** PORTD CONNECTIONS *************** 
         //******************************************
         /* = PD0; */ //CANRX
         /* = PD1; */ //CANTX
-        /* = PD2; */ //(DO NOT USE FOR SPEEDUINO) - SDIO_CMD
+        /* = PD2; */ //(DO NOT USE FOR gerefi) - SDIO_CMD
         /* = PD3; */ //
         /* = PD4; */ //
         pinFlex = PD4;

@@ -393,7 +393,7 @@ extern byte pinAirConComp;    // Air conditioning compressor output
 extern byte pinAirConFan;    // Stand-alone air conditioning fan output
 extern byte pinAirConRequest; // Air conditioning request input
 
-/* global variables */ // from speeduino.ino
+/* global variables */ // from gerefi.ino
 //#ifndef UNIT_TEST
 
 //#endif

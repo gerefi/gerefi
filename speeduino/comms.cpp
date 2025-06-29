@@ -1,5 +1,5 @@
 /*
-Speeduino - Simple engine management for the Arduino Mega 2560 platform
+gerefi - Simple engine management for the Arduino Mega 2560 platform
 Copyright (C) Josh Stewart
 A full copy of the license may be found in the projects root directory
 */
@@ -479,7 +479,7 @@ void serialReceive(void)
     //Need at least 2 bytes to read the length of the command
     byte highByte = (byte)primarySerial.peek();
 
-    //Check for DTR reset byte. This is sent by Windows upon initial connection and causes issues if treated as the first real byte. It should simply be ignored. See https://github.com/speeduino/speeduino/issues/1112
+    //Check for DTR reset byte. This is sent by Windows upon initial connection and causes issues if treated as the first real byte. It should simply be ignored. See https://github.com/gerefi/gerefi/issues/1112
     if(highByte == 0xF0) { primarySerial.read(); return; }
 
     //Check if the command is legacy using the call/response mechanism

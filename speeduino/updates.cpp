@@ -44,7 +44,7 @@ void doUpdates(void)
   //June 2017 required the forced addition of some CAN values to avoid weird errors
   if(readEEPROMVersion() == 3)
   {
-    configPage9.speeduino_tsCanId = 0;
+    configPage9.gerefi_tsCanId = 0;
     configPage9.true_address = 256;
     configPage9.realtime_base_address = 336;
 

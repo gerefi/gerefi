@@ -1,5 +1,5 @@
 /*
-Speeduino - Simple engine management for the Arduino Mega 2560 platform
+gerefi - Simple engine management for the Arduino Mega 2560 platform
 Copyright (C) Josh Stewart
 
 This program is free software; you can redistribute it and/or
@@ -17,12 +17,12 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 /** @file
- * Speeduino initialisation and main loop.
+ * gerefi initialisation and main loop.
  */
 #include <stdint.h> //developer.mbed.org/handbook/C-Data-Types
 //************************************************
 #include "globals.h"
-#include "speeduino.h"
+#include "gerefi.h"
 #include "scheduler.h"
 #include "comms.h"
 #include "comms_legacy.h"
@@ -81,7 +81,7 @@ inline uint16_t applyFuelTrimToPW(trimTable3d *pTrimTable, int16_t fuelLoad, int
     return percentage(pw1percent, currentPW);
 }
 
-/** Speeduino main loop.
+/** gerefi main loop.
  * 
  * Main loop chores (roughly in the order that they are performed):
  * - Check if serial comms or tooth logging are in progress (send or receive, prioritise communication)
@@ -359,7 +359,7 @@ void __attribute__((always_inline)) loop(void)
           #if defined(CORE_STM32) || defined(CORE_TEENSY)
            if (configPage9.enable_intcan == 1) //  if internal can is enabled 
            {
-              sendCancommand(3,configPage9.speeduino_tsCanId,currentStatus.current_caninchannel,0,((configPage9.caninput_source_can_address[currentStatus.current_caninchannel]&2047)+0x100));  
+              sendCancommand(3,configPage9.gerefi_tsCanId,currentStatus.current_caninchannel,0,((configPage9.caninput_source_can_address[currentStatus.current_caninchannel]&2047)+0x100));  
               //send an R command for data from caninput_source_address[currentStatus.current_caninchannel] from internal canbus
            }
           #endif

@@ -13,4 +13,4 @@ jobs:
         uses: hyper-tuner/ini-validate-action@v1
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-          filename: reference/speeduino.ini
+          filename: reference/gerefi.ini

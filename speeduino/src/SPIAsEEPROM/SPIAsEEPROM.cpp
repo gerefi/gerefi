@@ -1,10 +1,10 @@
-/* Speeduino SPIAsEEPROM Library v.2.0.4
+/* gerefi SPIAsEEPROM Library v.2.0.4
  * Copyright (C) 2020 by Tjeerd Hoogendijk
  * Created by Tjeerd Hoogendijk - 21/09/2019
  * Updated by Tjeerd Hoogendijk - 19/04/2020
  * Updated by Tjeerd Hoogendijk - 21/07/2020 no new version number
  *
- * This file is part of the Speeduino project. This library started out for
+ * This file is part of the gerefi project. This library started out for
  * Winbond SPI flash memory modules. As of version 2.0 it also works with internal
  * flash memory of the STM32F407. In its current form it enables reading
  * and writing individual bytes as if it where an AVR EEPROM. When the begin() 
@@ -22,7 +22,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License v3.0
- * along with the Speeduino SPIAsEEPROM Library.  If not, see
+ * along with the gerefi SPIAsEEPROM Library.  If not, see
  * <http://www.gnu.org/licenses/>.
  */
 #include "SPIAsEEPROM.h"

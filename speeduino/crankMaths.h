@@ -39,7 +39,7 @@ static inline int16_t injectorLimits(int16_t angle)
  **/
 #define MAX_RPM INT16_C(18000)
 
-/** @brief Absolute minimum RPM that the crank math (& therefore all of Speeduino) can be used with 
+/** @brief Absolute minimum RPM that the crank math (& therefore all of gerefi) can be used with 
  * 
  * This is dictated by the use of uint16_t as the base type for storing
  * angle<->time conversion factor (degreesPerMicro)

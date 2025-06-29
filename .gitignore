@@ -21,9 +21,9 @@ reference/hardware/v0.4/gerbers/Archive.zip
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/.browse.c_cpp.db*
-speeduino/board_samd21*
+gerefi/board_samd21*
 reference/doxygen
-speeduino.ino.cpp
+gerefi.ino.cpp
 test/output_export.cpp
 misra/.results
 ~$*

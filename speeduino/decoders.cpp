@@ -1,7 +1,7 @@
 #define MJR 1
 
 /*
-Speeduino - Simple engine management for the Arduino Mega 2560 platform
+gerefi - Simple engine management for the Arduino Mega 2560 platform
 Copyright (C) Josh Stewart
 A full copy of the license may be found in the projects root directory
 */
@@ -32,7 +32,7 @@ A full copy of the license may be found in the projects root directory
  *   the longer description (second column following name) on (Doxygen) "Modules" page (old Desc: ... could be this sentence)
  * - All the content after first sentence (like old Note:...) is visible on the page linked from the name (1st col) on "Modules" page
  * - To group all decoders together add 1) @defgroup dec Decoders (on top) and 2) "@ingroup dec" to each decoder (under @defgroup)
- * - To compare Speeduino Doxyfile to default config, do: `doxygen -g Doxyfile.default ; diff Doxyfile.default Doxyfile`
+ * - To compare gerefi Doxyfile to default config, do: `doxygen -g Doxyfile.default ; diff Doxyfile.default Doxyfile`
  */
 #include <limits.h>
 #include <SimplyAtomic.h>
@@ -1297,7 +1297,7 @@ void triggerSetEndTeeth_BasicDistributor(void)
 
 /** Decode GM 7X trigger wheel with six equally spaced teeth and a seventh tooth for cylinder identification.
 * Note: Within the decoder code pf GM7X, the sync tooth is referred to as tooth #3 rather than tooth #7. This makes for simpler angle calculations
-* (See: http://www.speeduino.com/forum/download/file.php?id=4743 ).
+* (See: http://www.gerefi.com/forum/download/file.php?id=4743 ).
 * @defgroup dec_gm7x GM7X
 * @{
 */
@@ -1429,7 +1429,7 @@ void triggerSetEndTeeth_GM7X(void)
 /** @} */
 
 /** Mitsubishi 4G63 / NA/NB Miata + MX-5 / 4/2.
-Note: raw.githubusercontent.com/noisymime/speeduino/master/reference/wiki/decoders/4g63_trace.png
+Note: raw.githubusercontent.com/noisymime/gerefi/master/reference/wiki/decoders/4g63_trace.png
 Tooth #1 is defined as the next crank tooth after the crank signal is HIGH when the cam signal is falling.
 Tooth number one is at 355* ATDC.
 * @defgroup dec_mitsu_miata Mistsubishi 4G63 and Miata + MX-5
@@ -1986,7 +1986,7 @@ void triggerSetEndTeeth_24X(void)
 * Crank wheel is high for 360 crank degrees. Quite similar to the 24X setup.
 * As we only need timing within 360 degrees, only 12 tooth angles are defined.
 * Tooth number 1 represents the first tooth seen after the cam signal goes high.
-* www.speeduino.com/forum/download/file.php?id=205
+* www.gerefi.com/forum/download/file.php?id=205
 * @defgroup dec_jeep Jeep 2000 (6 cyl)
 * @{
 */
@@ -4061,7 +4061,7 @@ void triggerSetEndTeeth_ThirtySixMinus21(void)
 /** DSM 420a, For the DSM Eclipse with 16 teeth total on the crank.
 * Tracks the falling side of the signal.
 * Sync is determined by watching for a falling edge on the secondary signal and checking if the primary signal is high then.
-* https://github.com/noisymime/speeduino/issues/133
+* https://github.com/noisymime/gerefi/issues/133
 * @defgroup dec_dsm_420a DSM 420a, For the DSM Eclipse
 * @{
 */
@@ -5081,7 +5081,7 @@ void triggerSetEndTeeth_Vmax(void)
 /** @} */
 
 /** Renix 44-2-2  and 66-2-2-2 decoder.  
-* Renix trigger wheel doesn't decode into 360 degrees nicely (360/44 = 8.18 degrees or 360/66 = 5.454545). Speeduino can't handle any teeth that have a decimal point.
+* Renix trigger wheel doesn't decode into 360 degrees nicely (360/44 = 8.18 degrees or 360/66 = 5.454545). gerefi can't handle any teeth that have a decimal point.
 * Solution is to count teeth, every 11 teeth = a proper angle. For 66 tooth decoder its 60 degrees per 11 teeth, for 44 tooth decoder its 90 degrees per 11 teeth.
 * This means the system sees 4 teeth on the 44 tooth wheel and 6 teeth on the 66 tooth wheel.
 * Double missing tooth in the pattern is actually a large tooth and a large gap. If the trigger is set to rising you'll see the start of the large tooth
@@ -5096,7 +5096,7 @@ void triggerSetup_Renix(void)
   if( configPage2.nCylinders == 4)
   {
     triggerToothAngle = 90; //The number of degrees that passes from tooth to tooth (primary) this changes between 41 and 49 degrees
-    configPage4.triggerTeeth = 4; // wheel has 44 teeth but we use these to work out which tooth angle to use, therefore speeduino thinks we only have 8 teeth.
+    configPage4.triggerTeeth = 4; // wheel has 44 teeth but we use these to work out which tooth angle to use, therefore gerefi thinks we only have 8 teeth.
     configPage4.triggerMissingTeeth = 0;
     triggerActualTeeth = 4; //The number of teeth we're pretending physically existing on the wheel.
     triggerFilterTime = (MICROS_PER_SEC / (MAX_RPM / 60U * 44U)); //Trigger filter time is the shortest possible time (in uS) that there can be between crank teeth (ie at max RPM). Any pulses that occur faster than this time will be discarded as noise
@@ -5104,7 +5104,7 @@ void triggerSetup_Renix(void)
   else if (configPage2.nCylinders == 6)
   {
     triggerToothAngle = 60;
-    configPage4.triggerTeeth = 6; // wheel has 44 teeth but we use these to work out which tooth angle to use, therefore speeduino thinks we only have 6 teeth.
+    configPage4.triggerTeeth = 6; // wheel has 44 teeth but we use these to work out which tooth angle to use, therefore gerefi thinks we only have 6 teeth.
     configPage4.triggerMissingTeeth = 0;
     triggerActualTeeth = 6; //The number of teeth we're pretending physically existing on the wheel.
     triggerFilterTime = (MICROS_PER_SEC / (MAX_RPM / 60U * 66U)); //Trigger filter time is the shortest possible time (in uS) that there can be between crank teeth (ie at max RPM). Any pulses that occur faster than this time will be discarded as noise
@@ -5122,7 +5122,7 @@ void triggerSetup_Renix(void)
 }
 
 
-// variables used to help calculate gap on the physical 44 or 66 teeth we're pretending don't exist in most of the speeduino code
+// variables used to help calculate gap on the physical 44 or 66 teeth we're pretending don't exist in most of the gerefi code
 // reusing existing variables to save storage space as these aren't used in the code for their original purpose.
 #define renixSystemLastToothTime         toothLastToothRisingTime
 #define renixSystemLastMinusOneToothTime toothLastSecToothRisingTime
@@ -5165,7 +5165,7 @@ void triggerPri_Renix(void)
     renixSystemLastMinusOneToothTime = renixSystemLastToothTime; // needed for target gap calculation
     renixSystemLastToothTime = curTime;
 
-    if( toothSystemCount == 12  || toothLastToothTime == 0) // toothLastToothTime used to ensure we set the value so the code that handles the fuel pump in speeduino.ini has a value to use once the engine is running.
+    if( toothSystemCount == 12  || toothLastToothTime == 0) // toothLastToothTime used to ensure we set the value so the code that handles the fuel pump in gerefi.ini has a value to use once the engine is running.
     {
       toothCurrentCount++;
 

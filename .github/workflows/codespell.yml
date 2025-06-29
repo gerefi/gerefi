@@ -34,4 +34,4 @@ jobs:
 
     # If count >0 will trigger a workflow failure, else success
     - name: run codespell
-      run: codespell --dictionary=/tmp/dictionary.txt --dictionary=/tmp/dictionary_rare.txt --ignore-words=./.github/workflows/codespell-ignored-words.txt --count ./speeduino/
+      run: codespell --dictionary=/tmp/dictionary.txt --dictionary=/tmp/dictionary_rare.txt --ignore-words=./.github/workflows/codespell-ignored-words.txt --count ./gerefi/

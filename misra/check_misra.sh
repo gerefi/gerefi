@@ -11,7 +11,7 @@ get_abs_filename() {
 script_folder=$(get_abs_filename "$(dirname $(readlink -f $0))")
 
 # Initialize variables with defaults
-source_folder="$script_folder/../speeduino" # -s, --source
+source_folder="$script_folder/../gerefi" # -s, --source
 out_folder="$script_folder/.results"        # -o, --out
 cppcheck_path=""                            # -c, --cppcheck
 quiet=0                                     # -q, --quiet

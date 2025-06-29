@@ -1,9 +1,9 @@
 /*
-This is universal CAN library for STM32 that was made to be used with Speeduino EFI.
+This is universal CAN library for STM32 that was made to be used with gerefi EFI.
 It should support all STM32 MCUs that are also supported in stm32duino Arduino_Core_STM32 and supports up to 3x CAN buses.
 The library is created because at least currently (year 2021) there is no official CAN library in the STM32 core.
 This library is based on several STM32 CAN example libraries linked below and it has been combined with few
-things from Teensy FlexCAN library to make it compatible with the CAN features that exist in speeduino for Teensy.
+things from Teensy FlexCAN library to make it compatible with the CAN features that exist in gerefi for Teensy.
 Links to repositories that have helped with this:
 https://github.com/nopnop2002/Arduino-STM32-CAN
 https://github.com/J-f-Jensen/libraries/tree/master/STM32_CAN
@@ -109,7 +109,7 @@ class STM32_CAN {
   public:
     // Default buffer sizes are set to 16. But this can be changed by using constructor in main code.
     STM32_CAN(CAN_TypeDef* canPort, CAN_PINS pins, RXQUEUE_TABLE rxSize = RX_SIZE_16, TXQUEUE_TABLE txSize = TX_SIZE_16);
-    // Begin. By default the automatic retransmission is disabled in Speeduino, because it has been observed to cause sync issues.
+    // Begin. By default the automatic retransmission is disabled in gerefi, because it has been observed to cause sync issues.
     void begin(bool retransmission = false);
     void setBaudRate(uint32_t baud);
     bool write(CAN_message_t &CAN_tx_msg, bool sendMB = false);

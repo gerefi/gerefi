@@ -78,7 +78,7 @@ jobs:
           sketches-report-path: ${{ env.SKETCHES_REPORTS_PATH }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           sketch-paths: |
-            - speeduino/speeduino.ino
+            - gerefi/gerefi.ino
           platforms: |
             ${{ matrix.board.platform }}
           cli-compile-flags: |
